@@ -77,7 +77,7 @@ claude mcp call beopmang law search "개인정보보호법"
 ### 2. 이 마켓플레이스 추가
 
 ```bash
-claude plugin marketplace add <user-or-org>/claude-for-legal-kr
+claude plugin marketplace add rhc98/claude-for-legal-kr
 ```
 
 ### 3. privacy-legal 설치
