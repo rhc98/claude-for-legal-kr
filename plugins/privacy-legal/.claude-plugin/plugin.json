@@ -1,6 +1,6 @@
 {
   "name": "privacy-legal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "한국 개인정보보호법(PIPA) 실무 — 처리 활동 트리아지, 개인정보 영향평가(PIA) 작성, 위·수탁계약(DPA) 양방향 검토, 정보주체 권리행사(열람·정정·삭제) 응답 초안, PIPC 정책 변화 추적. 법망 MCP 기반 조문·판례 검증. claude-for-legal-kr 포팅.",
   "keywords": [
     "privacy",
