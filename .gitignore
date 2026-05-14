@@ -1,0 +1,74 @@
+# claude-for-legal-kr — .gitignore
+#
+# 이 레포는 markdown + JSON 위주. 빌드 산출물 없음.
+# 사용자별 설정·로컬 상태·OS·에디터 파일만 제외.
+
+# ── 로컬 작업 상태 ───────────────────────────────────────────
+# OMC(oh-my-claudecode) 세션·상태. 본 레포에 push 불필요.
+.omc/
+# Claude Code 프로젝트별 로컬 설정. 사용자별로 다름.
+.claude/
+# 플랜 모드 산출물. 본 레포가 아닌 ~/.claude/plans/에서 관리됨 — 혹시라도 root로 흘러나올 경우 대비.
+.plans/
+
+# ── 사용자별 런타임 상태 ─────────────────────────────────────
+# 스킬이 산출하는 검증 로그·매터 워크스페이스는 사용자 머신의
+# ~/.claude/plugins/config/claude-for-legal/privacy-legal/ 아래에 저장됨.
+# 그 경로는 본 레포 외부지만, 만일 실수로 레포 안에 생성된 경우 차단.
+**/verification-log.md
+**/matters/
+**/outputs/
+
+# ── 시크릿 ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# ── macOS ───────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# ── Windows ─────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Linux ───────────────────────────────────────────────────
+*~
+.directory
+.Trash-*
+
+# ── 에디터 ──────────────────────────────────────────────────
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+.netrwhist
+.vim/
+.nvim/
+
+# ── 로그·임시 ───────────────────────────────────────────────
+*.log
+logs/
+*.tmp
+*.temp
+tmp/
+
+# ── 백업·아카이브 ───────────────────────────────────────────
+*.orig
+*.rej
+*.backup
+*.old

@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "beopmang": {
+      "type": "http",
+      "url": "https://api.beopmang.org/mcp",
+      "title": "법망 (Beopmang)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 인증 불필요. 분당 100회 제한(IP/클라이언트 단위 추정). 환각방지 인용 검증 도구 포함. 1차 데이터: 법제처·국회 Open API."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 침해사고 알림, 트리아지 결과 공유 등에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 시드 문서(개인정보처리방침·DPA 템플릿·표준 PIA) 로드에 사용."
+    }
+  },
+  "recommendedCategories": [
+    "documents",
+    "chat",
+    "legal-document-management",
+    "legal-research"
+  ]
+}

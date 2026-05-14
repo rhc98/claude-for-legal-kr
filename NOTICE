@@ -1,0 +1,48 @@
+claude-for-legal-kr
+Copyright 2026 claude-for-legal-kr contributors
+
+This product includes software developed by Anthropic for the original
+claude-for-legal project (https://github.com/anthropics/claude-for-legal),
+licensed under the Apache License, Version 2.0. The privacy-legal plugin
+in this repository is a Korean-jurisdiction adaptation of the upstream
+privacy-legal plugin.
+
+Original copyright:
+Copyright 2025 Anthropic
+
+Korean localization scope:
+- Practice profile (CLAUDE.md) re-authored for the Korean Personal
+  Information Protection Act (PIPA) and related laws.
+- Skill prompts (skills/*/SKILL.md) re-authored to reference Korean
+  statutes, regulators (PIPC, KISA), case law, and practice norms.
+- MCP connector set replaced: Western legal-research connectors
+  (CourtListener, Westlaw, Ironclad) removed; Beopmang MCP
+  (https://api.beopmang.org/mcp) added as the primary statute and
+  case-law source.
+- Two new KR-specific skills added (pipa-spi-handling, cross-border-transfer).
+- All retained guardrail patterns (work-product header, source attribution
+  tags, decision posture, jurisdiction recognition) carry their original
+  intent into the Korean privilege and confidentiality regime, with
+  Korean-equivalent terminology and a documented note that the US
+  "attorney work product" doctrine does not exist in Korean law.
+
+Data sources used at runtime by this plugin:
+- Beopmang Open API (https://api.beopmang.org) — Korean statutes,
+  ordinances, case law, constitutional decisions, bills, administrative
+  rules, local ordinances, treaties, and interpretations. Beopmang
+  aggregates from the Korean Ministry of Government Legislation
+  (법제처) Open API and National Assembly (국회) Open API. Outputs
+  are reference material; not legal effect. Verify against primary
+  sources before relying.
+
+The Apache License, Version 2.0 (the "License") governs use of this
+software. You may obtain a copy of the License in the LICENSE file in
+this repository or at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

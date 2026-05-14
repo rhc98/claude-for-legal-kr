@@ -1,0 +1,17 @@
+{
+  "name": "claude-for-legal-kr",
+  "description": "claude-for-legal의 한국 법체계 포팅. Korean-jurisdiction adaptation of Anthropic's claude-for-legal plugins, powered by the Beopmang MCP (https://api.beopmang.org/mcp) for Korean statutes and case law.",
+  "owner": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "plugins": [
+    {
+      "name": "privacy-legal",
+      "source": "./plugins/privacy-legal",
+      "description": "한국 개인정보보호법(PIPA) 실무 — 처리 활동 트리아지, 개인정보 영향평가(PIA) 작성, 위·수탁계약(DPA) 검토(수탁자/위탁자 양방향), 정보주체 권리행사(열람·정정·삭제) 응답 초안, PIPC 정책 변화 추적. 법망 MCP 기반 조문·판례 검증.",
+      "author": {
+        "name": "claude-for-legal-kr contributors"
+      }
+    }
+  ]
+}
