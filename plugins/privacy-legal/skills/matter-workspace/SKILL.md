@@ -19,12 +19,12 @@ argument-hint: "<new | list | switch | close | none> [slug]"
 - `/privacy-legal:matter-workspace list` — 상태·활성 플래그와 함께 매터 목록
 - `/privacy-legal:matter-workspace switch <slug>` — 활성 매터 설정
 - `/privacy-legal:matter-workspace close <slug>` — 매터 아카이브
-  (`~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/_archived/`로 이동, 절대 삭제 안 함)
+  (`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/_archived/`로 이동, 절대 삭제 안 함)
 - `/privacy-legal:matter-workspace none` — 활성 매터에서 분리, 실무 수준에서만 작업
 
 ## 지침
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 읽기 — `## 매터
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 읽기 — `## 매터
    워크스페이스` 섹션 populate 확인. `활성화`가 `✗`이면: "매터 워크스페이스 off — 의뢰인
    하나의 사내 실무로 구성되어 있어 플러그인이 실무 수준 컨텍스트에서 자동 동작합니다.
    실제로 다중 의뢰인 작업이면 `/privacy-legal:cold-start-interview --redo` 실행하고
@@ -32,13 +32,13 @@ argument-hint: "<new | list | switch | close | none> [slug]"
    없음." 오류 처리 안 함 — 비활성 상태는 사내 사용자의 예상 상태.
 2. 아래 서브커맨드 로직 사용.
 3. `$ARGUMENTS`의 첫 토큰으로 디스패치:
-   - `new` → 인테이크 인터뷰 실행, `~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/<slug>/matter.md`
+   - `new` → 인테이크 인터뷰 실행, `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/<slug>/matter.md`
      작성, `history.md`와 `notes.md` seed.
-   - `list` → `~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/*/matter.md`
+   - `list` → `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/*/matter.md`
      enumerate, 표 출력, 활성 매터 표시.
    - `switch` → 실무 수준 CLAUDE.md의 `활성 매터:` 라인 갱신.
-   - `close` → `~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/<slug>/`를
-     `~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/_archived/<slug>/`로
+   - `close` → `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/<slug>/`를
+     `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/_archived/<slug>/`로
      이동, `history.md`에 종료 날짜 로그.
    - `none` → `활성 매터:`를 `없음 — 실무 수준 컨텍스트만`으로 설정.
 4. 무엇이 변경되는지 사용자에게 보여주고 작성 전 확인.
@@ -67,7 +67,7 @@ argument-hint: "<new | list | switch | close | none> [slug]"
 모든 매터 데이터는:
 
 ```
-~/.claude/plugins/config/claude-for-legal/privacy-legal/
+~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/
 ├── CLAUDE.md                       # 실무 수준 실무 프로파일
 └── matters/
     ├── <slug>/

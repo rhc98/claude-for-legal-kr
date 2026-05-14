@@ -18,8 +18,8 @@ argument-hint: "[섹션명, 또는 변경하고 싶은 내용 설명]"
 
 ## 할 일
 
-1. **config 읽기.** `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`
-   (와 한 단계 위 `~/.claude/plugins/config/claude-for-legal/company-profile.md`) 읽기.
+1. **config 읽기.** `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`
+   (와 한 단계 위 `~/.claude/plugins/config/claude-for-legal-kr/company-profile.md`) 읽기.
    플러그인 config 없거나 `[PLACEHOLDER]` 값 남아 있으면:
 
    > 셋업을 아직 안 하셨습니다. 먼저 `/privacy-legal:cold-start-interview` 실행 —
@@ -58,7 +58,7 @@ argument-hint: "[섹션명, 또는 변경하고 싶은 내용 설명]"
    ```
    [YYYY-MM-DD] customize - [성명]이(가) [섹션]에서 [구체적 변경]
    ```
-   `~/.claude/plugins/config/claude-for-legal/privacy-legal/verification-log.md`에 추가.
+   `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/verification-log.md`에 추가.
 
 ## 흔한 맞춤화 패턴
 

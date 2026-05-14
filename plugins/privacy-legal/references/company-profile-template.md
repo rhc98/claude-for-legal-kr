@@ -1,6 +1,6 @@
 # 공유 회사 프로필 템플릿
 
-이 템플릿은 `~/.claude/plugins/config/claude-for-legal/company-profile.md`의 구조를 정의.
+이 템플릿은 `~/.claude/plugins/config/claude-for-legal-kr/company-profile.md`의 구조를 정의.
 모든 claude-for-legal-kr 플러그인이 공유. 본 플러그인의 cold-start-interview가 처음 실행될 때
 이 파일을 생성하고, 이후 다른 플러그인들은 동일 파일을 재사용 (회사 질문 재질문 안 함).
 

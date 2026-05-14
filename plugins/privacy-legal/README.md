@@ -28,7 +28,7 @@ PIA(개인정보 영향평가) 작성, 위·수탁계약(DPA) 양방향 검토, 
 개인정보처리방침, 표준 위·수탁계약, 만족하는 PIA 하나 — 그리고 실제 입장과 하우스
 스타일을 학습합니다.
 
-설정은 `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`에 저장되며
+설정은 `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`에 저장되며
 플러그인 업데이트와 무관하게 유지됩니다.
 
 ```
@@ -98,7 +98,7 @@ CLAUDE.md에서 사용.
 
 ## 학습 메커니즘
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`의 실무 프로파일은
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`의 실무 프로파일은
 정적이지 않습니다 — 플러그인을 쓸수록 개선됩니다. 스킬은 출력이 어떤 디폴트를
 사용했는지 알려주어 튜닝하도록 안내합니다. `policy-monitor` 스킬은 정책과 실무의
 drift를 감지해 업데이트를 제안합니다. 재셋업 실행, 파일 직접 수정, 또는 스킬에게

@@ -92,7 +92,7 @@ claude plugin install privacy-legal@claude-for-legal-kr
 /privacy-legal:cold-start-interview
 ```
 
-10-15분 인터뷰로 실무 프로파일이 `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`에
+10-15분 인터뷰로 실무 프로파일이 `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`에
 저장됩니다. 이후 모든 스킬이 이 파일을 참조합니다.
 
 ---

@@ -10,7 +10,7 @@ argument-hint: "[규제명, 또는 텍스트·요약 paste]"
 
 # /reg-gap-analysis
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` → 처리방침 약속,
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` → 처리방침 약속,
    규제 풋프린트, 권리행사 시스템 로드.
 2. 아래 워크플로우 실행.
 3. 범위: 규제가 적용되는가? (관할·임계점·산업)
@@ -45,7 +45,7 @@ diff하고 시정 계획 포함 갭 목록 산출.
 
 ## 현재 상태 로드
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 읽기:
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 읽기:
 - `## 개인정보처리방침 약속` — 공개 약속한 것
 - `## 우리는 누구인가` → `## 규제 풋프린트` — 이미 적용되는 것
 - `## 정보주체 권리행사 처리 절차` → 시스템 목록 — 실제 운영적 처리

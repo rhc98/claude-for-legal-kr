@@ -10,7 +10,7 @@ argument-hint: "[처리할 데이터 항목 또는 활동 설명]"
 
 # /pipa-spi-handling
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 로드.
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 로드.
 2. 처리하려는 데이터 항목을 PIPA §23 (민감정보) / §24 (고유식별정보) / §24-2 (주민등록번호)
    카테고리 매핑.
 3. 적법 처리 근거 점검: 별도 동의 / 법령 특별 규정 / 기타 §15·§17 근거.

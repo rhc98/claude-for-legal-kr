@@ -10,7 +10,7 @@ argument-hint: "[처리 활동 또는 기능 설명]"
 
 # /use-case-triage
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 읽기. 개인정보 실무
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 읽기. 개인정보 실무
    구성 확인 — 없으면 멈추고 셋업으로 안내.
 2. 아래 워크플로우 실행. 활동이 모호하면 명확화.
 3. 하우스 트리거 점검 → PIPA §33 의무평가 점검 → 처리방침 충돌 점검.
@@ -31,7 +31,7 @@ argument-hint: "[처리 활동 또는 기능 설명]"
 이 단락 나머지 skip — 스킬은 실무 수준 컨텍스트 사용, 매터 머시너리는 비활성. 활성이고
 활성 매터 없으면: "어느 매터입니까? `/privacy-legal:matter-workspace switch <slug>` 실행하거나
 `practice-level` 말씀." 활성 매터의 `matter.md` 로드. 산출물은
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/matters/<매터-slug>/`. `매터 간
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/matters/<매터-slug>/`. `매터 간
 컨텍스트`가 `on`이 아니면 다른 매터 파일 절대 안 읽음.
 
 ## 목적
@@ -66,7 +66,7 @@ argument-hint: "[처리 활동 또는 기능 설명]"
 
 ## config 먼저 읽기
 
-트리아지 전 항상 `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 읽기.
+트리아지 전 항상 `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 읽기.
 거기의 PIA 트리거 기준·규제 풋프린트·처리방침 약속이 authoritative. 일반 개인정보법
 reasoning은 이 회사가 실제로 commit한 것의 대체가 아니다.
 
@@ -112,7 +112,7 @@ reasoning은 이 회사가 실제로 commit한 것의 대체가 아니다.
 
 ### Step 2: 하우스 트리거 점검
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` → `## PIA(개인정보
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` → `## PIA(개인정보
 영향평가) 하우스 스타일` → 트리거 기준 읽기. 적용.
 
 하우스 트리거 충족 → 최소 **PIA 권장**.
@@ -166,7 +166,7 @@ mcp__beopmang__law get "개인정보보호법 시행령 제35조"
 
 ### Step 4: 처리방침 충돌 점검
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` → `## 개인정보처리방침
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` → `## 개인정보처리방침
 약속` 읽기. 제안된 활동을 모든 기재된 약속과 대조 점검.
 
 **자주 잡히는 충돌:**

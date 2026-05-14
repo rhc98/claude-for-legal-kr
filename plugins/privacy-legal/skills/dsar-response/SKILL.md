@@ -10,7 +10,7 @@ argument-hint: "[요구 paste 또는 설명]"
 
 # /dsar-response
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` → 권리행사 절차
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` → 권리행사 절차
    (시스템 목록·본인확인 방법·SLA) 로드.
 2. 아래 워크플로우 실행.
 3. 요구 유형 분류. 에스컬레이션 트리거 점검 — 발사하면 진행 전 routing.
@@ -60,7 +60,7 @@ CLAUDE.md `## 매터 워크스페이스` 확인. 비활성이면 skip. 활성이
 
 ## 절차 로드
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` → `## 정보주체 권리행사
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` → `## 정보주체 권리행사
 처리 절차` 읽기. 거기에:
 - 시스템 목록 (사용자 데이터가 있는 모든 곳)
 - 본인확인 방법

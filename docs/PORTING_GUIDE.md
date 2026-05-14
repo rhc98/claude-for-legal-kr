@@ -36,8 +36,10 @@
 원본 `CLAUDE.md`는 placeholder 가진 템플릿 (40K 내외). 다음 순서로 작업:
 
 1. **구조 유지**: 섹션 헤더 순서·계층 그대로 유지. 다른 스킬들이 이 구조에 의존.
-2. **첫 단락 (configuration location 코멘트) 번역**: 경로는 그대로 (`~/.claude/plugins/config/claude-for-legal/<plugin>/CLAUDE.md`),
-   안내문만 한국어로.
+2. **첫 단락 (configuration location 코멘트) 번역**: 경로는 마켓플레이스 이름을 따름
+   (`~/.claude/plugins/config/<marketplace-name>/<plugin>/CLAUDE.md` — 본 레포 기준
+   `~/.claude/plugins/config/claude-for-legal-kr/<plugin>/CLAUDE.md`), 안내문만 한국어로.
+   포팅 시 본인 fork의 marketplace.json `name`을 따라 일관되게 갱신.
 3. **각 섹션 한국화 — 단순 번역이 아닌 KR 재맥락화:**
    - "Who we are": controller/processor → 개인정보처리자/수탁자, 또는 플러그인별 한국 등가
    - "Regulatory footprint": 적용 한국법 카테고리로 (PIPA·신용정보법·근로기준법 등)

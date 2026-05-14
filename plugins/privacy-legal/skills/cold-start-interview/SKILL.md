@@ -10,21 +10,21 @@ argument-hint: "[--redo 재실행] [--check-integrations 통합만 재점검]"
 
 # /cold-start-interview
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 확인 — populate되어
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 확인 — populate되어
    있고 `--redo`가 아니면 덮어쓰기 전 확인.
 2. 아래 인터뷰 워크플로우 실행.
 3. 시드 문서: 개인정보처리방침(URL 또는 파일), 표준 위·수탁계약, 표준 PIA 하나. 셋 다 읽기.
 4. 추출: 처리방침 약속, 위·수탁계약 입장(stated와의 delta 메모), PIA 구조.
 5. 마이그레이션: populate된 CLAUDE.md(placeholder 없음)가
-   `~/.claude/plugins/cache/claude-for-legal/privacy-legal/*/CLAUDE.md`에는 있는데
+   `~/.claude/plugins/cache/claude-for-legal-kr/privacy-legal/*/CLAUDE.md`에는 있는데
    config 경로에 없다면, config 경로로 복사하고 무엇이 마이그레이션되었는지 사용자에게 보여줌.
-6. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 작성(필요시 상위
+6. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 작성(필요시 상위
    디렉토리 생성). 요약 보여주기. 첫 작업 제안.
 
 ## `--check-integrations`
 
 통합 가용성 점검(문서 저장소·Slack·스케줄드 태스크·**법망 MCP**)을 재실행하고
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`의
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`의
 `## 연결 가능한 통합` 섹션을 갱신. 재인터뷰는 하지 않음. MCP를 연결·해제한 뒤
 플러그인이 인식하길 원하지만 전체 셋업을 다시 돌리고 싶지 않을 때 사용.
 
@@ -55,7 +55,7 @@ argument-hint: "[--redo 재실행] [--check-integrations 통합만 재점검]"
 
 *이* 개인정보팀이 어떻게 일하는지 학습 — 어떤 규제가 실제로 적용되는지, 위·수탁계약에서
 무엇은 받아들이고 무엇은 거부하는지, 좋은 PIA가 여기서는 어떻게 생겼는지(어느 회사의
-PIA와 어떻게 다른지). `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`에
+PIA와 어떻게 다른지). `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`에
 써서 다른 모든 스킬이 같은 이해에서 읽도록.
 
 한국 개인정보 실무는 회사에 따라 크게 다르다. B2B SaaS 수탁자는 B2C 컨슈머 앱
@@ -63,7 +63,7 @@ PIA와 어떻게 다른지). `~/.claude/plugins/config/claude-for-legal/privacy-
 
 ## 콜드스타트 점검
 
-`~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 읽기:
+`~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 읽기:
 - **존재하지 않음** → 인터뷰 시작.
 - **`<!-- SETUP PAUSED AT: -->` 포함** → 사용자를 맞이하고 해당 섹션부터 재개 제안.
 - **`[PLACEHOLDER]` 마커가 있는데 pause comment는 없음** → 템플릿이 완료되지
@@ -74,12 +74,12 @@ PIA와 어떻게 다른지). `~/.claude/plugins/config/claude-for-legal/privacy-
 템플릿 구조는 `${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`에 있다 — 섹션 골격으로 사용.
 완성된 실무 프로파일을 config 경로에 쓰고 필요시 상위 디렉토리 생성.
 
-옛 캐시 경로 `~/.claude/plugins/cache/claude-for-legal/privacy-legal/*/CLAUDE.md`에
+옛 캐시 경로 `~/.claude/plugins/cache/claude-for-legal-kr/privacy-legal/*/CLAUDE.md`에
 CLAUDE.md가 있는데 config 경로에는 없다면, 앞으로 복사.
 
 ## 공유 회사 프로필 확인
 
-`~/.claude/plugins/config/claude-for-legal/company-profile.md` 확인.
+`~/.claude/plugins/config/claude-for-legal-kr/company-profile.md` 확인.
 
 - **있으면:** 읽기. 한 줄 확인 보여주기: "당신은 [성명], [실무 환경], [회사], [업종],
   [관할]에서 운영. 맞나요? (또는 '업데이트'를 말해 공유 프로필 변경.)" 확인되면
@@ -192,7 +192,7 @@ AI 도구"와 "당신 프로그램이 일하는 방식대로 동작하는 도구
 - **일시정지·재개.** 사용자에게 미리 말함: "멈춰야 하면 '잠시 멈춤'(또는 '나중에',
   '잠깐') 말씀해주세요. 진행 저장합니다. `/privacy-legal:cold-start-interview`를
   나중에 다시 실행하면 마지막 지점에서 재개합니다." 일시정지되면, 부분 구성을
-  `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`에 쓰고 상단에
+  `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`에 쓰고 상단에
   `<!-- SETUP PAUSED AT: [섹션 이름] — /privacy-legal:cold-start-interview를 실행해
   재개 -->` 코멘트와 답 없는 필드에 `[PENDING]` 마커(placeholder와 구분). 셋업이 재실행
   되어 일시정지 config를 발견하면, 사용자 환영: "다시 오셨네요. [섹션]에서 멈추셨습니다.
@@ -539,7 +539,7 @@ yes면 다음 맞춤 목록 보여줌 (일반 템플릿이 아님 — 이 플러
 
 5. **"나중에 뭐든 바꿀 수 있음" 메모로 닫기:**
 
-   > "실무 프로파일은 `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md`에
+   > "실무 프로파일은 `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md`에
    > 있습니다 — 직접 읽고 편집 가능한 평문 파일. 답한 것은 무엇이든 바꿀 수 있습니다:
    >
    > - 빠른 변경은 파일 직접 편집

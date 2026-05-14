@@ -11,7 +11,7 @@ argument-hint: "[국외이전 시나리오 설명]"
 
 # /cross-border-transfer
 
-1. `~/.claude/plugins/config/claude-for-legal/privacy-legal/CLAUDE.md` 로드.
+1. `~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md` 로드.
 2. 국외이전 시나리오 분석: 이전 데이터, 이전받는 자, 목적지 국가, 이전 목적, 이전 방법.
 3. PIPA §28-8 5트랙 중 가장 적합한 적법 근거 선택.
 4. 처리방침 게재 6개 항목 확인.
