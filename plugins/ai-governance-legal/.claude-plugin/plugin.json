@@ -1,0 +1,27 @@
+{
+  "name": "ai-governance-legal",
+  "version": "0.1.0",
+  "description": "한국 AI 거버넌스 실무 — AI 활용사례 트리아지, AI 영향평가 작성, 벤더 AI 약관 검토(학습데이터 이용·책임 갭), AI 시스템 인벤토리 관리, AI 정책 현행화. AI 기본법(2026.1.22. 시행) + PIPA §37-2(자동화된 결정) 기반. 법망 MCP 조문·판례 검증. claude-for-legal-kr 포팅.",
+  "keywords": [
+    "ai-governance",
+    "ai",
+    "korea",
+    "한국",
+    "ai기본법",
+    "ai-basic-act",
+    "인공지능",
+    "고영향인공지능",
+    "생성형ai",
+    "ai영향평가",
+    "자동화된결정",
+    "automated-decision",
+    "pipa",
+    "vendor-ai",
+    "ai정책"
+  ],
+  "author": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "homepage": "https://github.com/rhc98/claude-for-legal-kr",
+  "license": "Apache-2.0"
+}
