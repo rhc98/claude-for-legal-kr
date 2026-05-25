@@ -217,7 +217,6 @@ systems:
     type_basis: "채용·인사 의사결정 영역 — 고영향 [AI 기본법 현행 텍스트 대조 — 검증 필요]"
     pipa_nexus: 예                  # 예 | 아니오 | 검토 — PIPA §37-2 자동화된 결정 해당 시 privacy-legal 핸드오프
     foreign_nexus: 아니오           # 예 — [관할] | 아니오 | 검토 — 외국 AI법 overlay
-    obligations_assessed: false
     obligations_note: "평가할 것: AI이용사업자 + 고영향으로서 — 영향평가 노력의무, 이용자 고지, 사람의 관리·감독, 안전성·신뢰성 확보 조치 등 [검토 — AI 기본법 현행 의무 조문 대조 필요]"
     next_review: "2026-08-01"
     review_trigger: "중대한 변형 시 또는 연 1회"
