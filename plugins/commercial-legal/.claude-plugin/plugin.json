@@ -1,0 +1,27 @@
+{
+  "name": "commercial-legal",
+  "version": "0.1.0",
+  "description": "한국 상사·계약 실무 — 벤더계약·NDA·SaaS 약관을 매도인측/매수인측 플레이북 대조 검토, 약관규제법 불공정조항 점검, 갱신·해지통보 기한 추적, 에스컬레이션 라우팅, 이해관계자 요약. 민법·상법·약관규제법·하도급법·공정거래법·표시광고법·부정경쟁방지법 기반. 법망 MCP 조문·판례 검증. claude-for-legal-kr 포팅.",
+  "keywords": [
+    "commercial",
+    "contract",
+    "korea",
+    "한국",
+    "계약검토",
+    "약관규제법",
+    "하도급법",
+    "공정거래법",
+    "표시광고법",
+    "부정경쟁방지법",
+    "nda",
+    "msa",
+    "saas",
+    "vendor-agreement",
+    "갱신관리"
+  ],
+  "author": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "homepage": "https://github.com/rhc98/claude-for-legal-kr",
+  "license": "Apache-2.0"
+}

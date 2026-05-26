@@ -12,6 +12,22 @@
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
+    },
+    {
+      "name": "ai-governance-legal",
+      "source": "./plugins/ai-governance-legal",
+      "description": "한국 AI 거버넌스 실무 — AI 활용사례 트리아지, AI 시스템 인벤토리 관리, AI 영향평가(AIA) 작성, 벤더 AI 약관 검토(학습데이터 이용·책임 갭), AI 정책 초안·현행화. AI 기본법(2026.1.22. 시행) + PIPA §37-2(자동화된 결정) 기반. 법망 MCP 조문·판례 검증.",
+      "author": {
+        "name": "claude-for-legal-kr contributors"
+      }
+    },
+    {
+      "name": "commercial-legal",
+      "source": "./plugins/commercial-legal",
+      "description": "한국 상사·계약 실무 — 벤더계약·NDA·SaaS 약관을 매도인측/매수인측 플레이북 대조 검토, 약관규제법 불공정조항 점검, 갱신·해지통보 기한 추적, 하도급법 대금지급 보호, 소비자보호(B2C) overlay, 에스컬레이션·이해관계자 요약. 민법·상법·약관규제법·하도급법·공정거래법·표시광고법·부정경쟁방지법 기반. 법망 MCP 조문·판례 검증.",
+      "author": {
+        "name": "claude-for-legal-kr contributors"
+      }
     }
   ]
 }

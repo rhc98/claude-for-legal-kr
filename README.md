@@ -4,9 +4,10 @@
 > (Apache 2.0)의 **한국 법체계 포팅**.
 > 법망 MCP(`https://api.beopmang.org/mcp`)를 런타임 데이터 소스로 사용해 한국 법령·판례 위에서 실제 동작합니다.
 
-**현재 상태**: 1순위 플러그인 `privacy-legal` (개인정보보호법 실무) MVP. 다른 9개
-플러그인은 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) 가이드를 따라 동일한
-패턴으로 한국화 가능합니다.
+**현재 상태**: 3개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
+`ai-governance-legal`(AI 거버넌스 실무 — AI 기본법 2026.1.22. 시행 + PIPA §37-2 자동화된 결정),
+`commercial-legal`(상사·계약 실무 — 약관규제법·하도급법·소비자보호). 나머지 7개 플러그인은
+[`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) 가이드를 따라 동일한 패턴으로 한국화 가능합니다.
 
 ---
 
@@ -153,31 +154,80 @@ claude-for-legal-kr/
 ├── NOTICE                               # 원본 attribution + 한국화 기여
 ├── README.md                            # 이 파일
 ├── docs/
-│   ├── PORTING_GUIDE.md                 # 다른 9개 플러그인 포팅 가이드
+│   ├── PORTING_GUIDE.md                 # 다른 7개 플러그인 포팅 가이드
 │   ├── BEOPMANG_INTEGRATION.md          # 법망 MCP 사용 패턴
 │   └── DATA_GAPS.md                     # 법망 미커버 데이터(행정 결정례 등)
 ├── plugins/
-│   └── privacy-legal/                   # ★ MVP 풀세트
+│   ├── privacy-legal/                   # ★ 1순위 풀세트 (PIPA)
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── .mcp.json                    # 법망 + Slack + Google Drive
+│   │   ├── CLAUDE.md                    # PIPA 실무 프로파일 템플릿
+│   │   ├── README.md
+│   │   ├── hooks/hooks.json
+│   │   ├── references/
+│   │   │   ├── currency-watch.md        # 한국 개인정보 currency watch
+│   │   │   └── company-profile-template.md
+│   │   └── skills/
+│   │       ├── cold-start-interview/    # 9개 기존 스킬 한국화
+│   │       ├── customize/
+│   │       ├── dpa-review/
+│   │       ├── dsar-response/
+│   │       ├── matter-workspace/
+│   │       ├── pia-generation/
+│   │       ├── policy-monitor/
+│   │       ├── reg-gap-analysis/
+│   │       ├── use-case-triage/
+│   │       ├── pipa-spi-handling/       # 신규 KR 전용
+│   │       └── cross-border-transfer/   # 신규 KR 전용
+│   ├── ai-governance-legal/             # ★ 2순위 풀세트 (AI 기본법 + PIPA §37-2)
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── .mcp.json                    # 법망 + Slack + Google Drive
+│   │   ├── CLAUDE.md                    # AI 거버넌스 실무 프로파일 템플릿
+│   │   ├── README.md
+│   │   ├── hooks/hooks.json
+│   │   ├── references/
+│   │   │   └── currency-watch.md        # 한국 AI 거버넌스 currency watch
+│   │   └── skills/
+│   │       ├── cold-start-interview/    # 10개 기존 스킬 한국화
+│   │       ├── customize/
+│   │       ├── matter-workspace/
+│   │       ├── use-case-triage/
+│   │       ├── ai-inventory/
+│   │       ├── aia-generation/
+│   │       ├── vendor-ai-review/
+│   │       ├── policy-starter/
+│   │       ├── policy-monitor/
+│   │       ├── reg-gap-analysis/
+│   │       ├── automated-decision-37-2/ # 신규 KR 전용 (PIPA §37-2)
+│   │       └── generative-ai-labeling/  # 신규 KR 전용 (AI 기본법 표시의무)
+│   └── commercial-legal/                # ★ 3순위 풀세트 (약관규제법·하도급법·소비자보호)
 │       ├── .claude-plugin/plugin.json
 │       ├── .mcp.json                    # 법망 + Slack + Google Drive
-│       ├── CLAUDE.md                    # PIPA 실무 프로파일 템플릿
+│       ├── CLAUDE.md                    # 상사·계약 실무 프로파일 템플릿
 │       ├── README.md
 │       ├── hooks/hooks.json
+│       ├── agents/                      # 신규 요소: 스케줄드·데이터 트리거 에이전트
+│       │   ├── deal-debrief.md
+│       │   ├── playbook-monitor.md
+│       │   └── renewal-watcher.md
 │       ├── references/
-│       │   ├── currency-watch.md        # 한국 개인정보 currency watch
+│       │   ├── currency-watch.md        # 한국 상사·계약 currency watch
 │       │   └── company-profile-template.md
 │       └── skills/
-│           ├── cold-start-interview/    # 9개 기존 스킬 한국화
+│           ├── cold-start-interview/    # 12개 기존 스킬 한국화
 │           ├── customize/
-│           ├── dpa-review/
-│           ├── dsar-response/
 │           ├── matter-workspace/
-│           ├── pia-generation/
-│           ├── policy-monitor/
-│           ├── reg-gap-analysis/
-│           ├── use-case-triage/
-│           ├── pipa-spi-handling/       # 신규 KR 전용
-│           └── cross-border-transfer/   # 신규 KR 전용
+│           ├── review/
+│           ├── vendor-agreement-review/
+│           ├── nda-review/
+│           ├── saas-msa-review/
+│           ├── renewal-tracker/
+│           ├── escalation-flagger/
+│           ├── stakeholder-summary/
+│           ├── amendment-history/
+│           ├── review-proposals/
+│           ├── subcontract-payment-protection/ # 신규 KR 전용 (하도급법)
+│           └── consumer-protection-overlay/     # 신규 KR 전용 (소비자보호 B2C)
 ├── .claude-plugin/marketplace.json
 └── scripts/
     └── install-beopmang-mcp.sh
@@ -187,9 +237,9 @@ claude-for-legal-kr/
 
 ## 기여
 
-다른 9개 플러그인(commercial-legal, corporate-legal, employment-legal,
-regulatory-legal, ai-governance-legal, ip-legal, litigation-legal,
-law-student, legal-clinic)을 한국화하고 싶으신가요?
+다른 7개 플러그인(corporate-legal, employment-legal, regulatory-legal,
+ip-legal, litigation-legal, law-student, legal-clinic)을
+한국화하고 싶으신가요?
 
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) — privacy-legal MVP에서 추출한
 포팅 패턴(8단계 체크리스트 + 법망 통합 코드 스니펫 + CLAUDE.md 리라이트 템플릿).
