@@ -1,0 +1,4 @@
+# 영구 데이터 경로 placeholder.
+# 휴가·휴직 등록부(leave register), 조사 로그(investigation log), 확장 트래커가
+# 사용자 설정 경로(~/.claude/plugins/config/claude-for-legal-kr/employment-legal/)에 저장된다.
+# 이 디렉토리는 플러그인 배포 시 구조 유지를 위한 placeholder다 (실데이터는 사용자 config 경로에 기록).
