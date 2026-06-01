@@ -28,6 +28,14 @@
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
+    },
+    {
+      "name": "employment-legal",
+      "source": "./plugins/employment-legal",
+      "description": "한국 근로·고용·인사 실무 — 해고·징계의 정당성(근로기준법 §23) 검토, 근로자성 판단, 임금·근로시간(통상임금·주52시간·최저임금), 직장 내 괴롭힘·성희롱 조사, 취업규칙 작성·변경, 휴가·휴직 법정기한 관리. 상시 근로자 수 기준 적용 차등 인식. 근로기준법·남녀고용평등법·노조법·산재보험법·최저임금법 기반. 법망 MCP 조문·판례 검증.",
+      "author": {
+        "name": "claude-for-legal-kr contributors"
+      }
     }
   ]
 }

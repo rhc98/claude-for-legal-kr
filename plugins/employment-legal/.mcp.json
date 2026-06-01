@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "beopmang": {
+      "type": "http",
+      "url": "https://api.beopmang.org/mcp",
+      "title": "법망 (Beopmang)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 근로기준법·남녀고용평등법·노동조합 및 노동관계조정법·산업재해보상보험법·산업안전보건법·최저임금법·기간제법·파견법 등 조회·검증에 사용. 인증 불필요. 분당 100회 제한(IP/클라이언트 단위 추정). 환각방지 인용 검증 도구 포함. 1차 데이터: 법제처·국회 Open API. ※ 노동위원회 판정례·고용노동부 행정해석은 미커버 가능 — DATA_GAPS 참조."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 검토 결과 공유, 휴가·휴직 법정기한 알림, 에스컬레이션에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 시드 문서(취업규칙·표준 근로계약서·인사규정·최근 해고/징계 메모) 로드에 사용."
+    }
+  },
+  "recommendedCategories": [
+    "hris",
+    "documents",
+    "chat",
+    "legal-research"
+  ]
+}
