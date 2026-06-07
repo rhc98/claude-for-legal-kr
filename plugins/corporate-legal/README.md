@@ -12,12 +12,11 @@
 
 ---
 
-## ⚠️ 현재 상태: Phase C 완료 (인프라 + M&A 핵심)
+## ✅ 현재 상태: 전 스킬 포팅 완료 (Phase A~E)
 
-인프라 3스킬(`cold-start-interview`·`customize`·`matter-workspace`)과 **M&A 핵심 6스킬**
-(`diligence-issue-extraction`·`tabular-review`·`material-contract-schedule`·`closing-checklist`·
-`deal-team-summary` + KR 신규 `merger-control-filing`) 포팅 완료. **이사회·법인관리·상장사 모듈
-스킬(Phase D/E)은 아직 포팅되지 않았다.** 포팅 계획·순서는 [`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
+corporate-legal 플러그인의 **모든 스킬 포팅 완료** — 인프라 3 + M&A 핵심 6 + 이사회 2 + 법인관리 1 +
+M&A 부가 2 + KR 신규 상장사/주총 2 = **16개 스킬 + `dataroom-watcher` 에이전트 1개**. 남은 것은
+Phase F(E2E 런타임 검증 — 법망 MCP 복구 후 인용 verify). 상세는 [`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
 
 상류는 미국 다주 관할 + 미국 회사법(델라웨어) + SEC 공시가 전제다. 한국 포팅의 핵심 재맥락화:
 
@@ -40,7 +39,7 @@
 
 ---
 
-## 첫 실행 (포팅 완료 후)
+## 첫 실행
 
 ```
 /corporate-legal:cold-start-interview
@@ -69,14 +68,14 @@
 | closing-checklist | M&A | 종결 체크리스트 — 기업결합신고·주총특별결의·채권자보호 | ✅ 포팅 완료 (C) |
 | deal-team-summary | M&A | 계층 브리프 (경영진/딜리드/실무) | ✅ 포팅 완료 (C) |
 | **merger-control-filing** | M&A | 공정거래법 기업결합신고 (KR 신규) | ✅ 신규 완료 (C) |
-| ai-tool-handoff | M&A | Luminance/Kira 핸드오프 (옵션) | 포팅 예정 (D) |
-| integration-management | M&A | 종결 후 통합(PMI)·승계동의·필수동의 트래커 | 포팅 예정 (D) |
-| board-minutes | 이사회 | 이사회 의사록 (§391-3·공증) | 포팅 예정 (D) |
-| written-consent | 이사회 | 서면결의 (한국 제한 반영) + 선례검색 | 포팅 예정 (D) |
-| **shareholder-meeting** | 이사회 | 주주총회 운영 (KR 신규) | 신규 (D/E) |
-| entity-compliance | 법인관리 | 상업등기 변경등기 기한·법인 컴플라이언스 트래커 | 포팅 예정 (D) |
-| **public-disclosure** | 상장사 | 자본시장법·거래소 공시 (KR 신규, 상류 미출시) | 신규 (E) |
-| dataroom-watcher (agent) | M&A | VDR 신규 업로드 모니터·종결 체크 | 포팅 예정 (D) |
+| ai-tool-handoff | M&A | Luminance/Kira 핸드오프 (옵션) | ✅ 포팅 완료 (D) |
+| integration-management | M&A | 종결 후 통합(PMI)·승계동의·필수동의 트래커 | ✅ 포팅 완료 (D) |
+| board-minutes | 이사회 | 이사회 의사록 (§391-3·공증) | ✅ 포팅 완료 (D) |
+| written-consent | 이사회 | 서면결의 (한국 제한 반영) + 선례검색 | ✅ 포팅 완료 (D) |
+| **shareholder-meeting** | 이사회 | 주주총회 운영 (KR 신규) | ✅ 신규 완료 (D/E) |
+| entity-compliance | 법인관리 | 상업등기 변경등기 기한·법인 컴플라이언스 트래커 | ✅ 포팅 완료 (D) |
+| **public-disclosure** | 상장사 | 자본시장법·거래소 공시 (KR 신규, 상류 미출시) | ✅ 신규 완료 (E) |
+| dataroom-watcher (agent) | M&A | VDR 신규 업로드 모니터·종결 체크 | ✅ 포팅 완료 (D) |
 
 ---
 
