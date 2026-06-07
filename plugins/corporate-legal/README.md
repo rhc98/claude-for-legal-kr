@@ -12,12 +12,12 @@
 
 ---
 
-## ⚠️ 현재 상태: Phase B (인프라 스킬 완료)
+## ⚠️ 현재 상태: Phase C 완료 (인프라 + M&A 핵심)
 
-플러그인 인프라(`plugin.json`·`.mcp.json`·`CLAUDE.md` 모듈형 실무 프로파일·`hooks`·`references`)와
-**인프라 스킬 3종(`cold-start-interview`·`customize`·`matter-workspace`)** 포팅 완료. **substantive
-스킬(M&A 실사·이사회·법인관리 등, Phase C/D/E)은 아직 포팅되지 않았다.** 포팅 계획·순서는
-[`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
+인프라 3스킬(`cold-start-interview`·`customize`·`matter-workspace`)과 **M&A 핵심 6스킬**
+(`diligence-issue-extraction`·`tabular-review`·`material-contract-schedule`·`closing-checklist`·
+`deal-team-summary` + KR 신규 `merger-control-filing`) 포팅 완료. **이사회·법인관리·상장사 모듈
+스킬(Phase D/E)은 아직 포팅되지 않았다.** 포팅 계획·순서는 [`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
 
 상류는 미국 다주 관할 + 미국 회사법(델라웨어) + SEC 공시가 전제다. 한국 포팅의 핵심 재맥락화:
 
@@ -63,12 +63,12 @@
 |---|---|---|---|
 | cold-start-interview | All | 모듈형 인터뷰 — 활성 섹션만 작성 | ✅ 포팅 완료 (B) |
 | customize / matter-workspace | All | 실무 프로파일 부분 수정 / 매터 격리 | ✅ 포팅 완료 (B) |
-| diligence-issue-extraction | M&A | 실사 문서 → 한국 실사 카테고리별 이슈 메모 | 포팅 예정 (C) |
-| tabular-review | M&A | 문서세트 표 검토, 셀별 인용, xlsx·csv·md 출력 | 포팅 예정 (C) |
-| material-contract-schedule | M&A | 진술보장 정의 기준 중요계약 공개목록 | 포팅 예정 (C) |
-| closing-checklist | M&A | 종결 체크리스트 — 기업결합신고·주총특별결의·채권자보호 | 포팅 예정 (C) |
-| deal-team-summary | M&A | 계층 브리프 (경영진/딜리드/실무) | 포팅 예정 (C) |
-| **merger-control-filing** | M&A | 공정거래법 기업결합신고 (KR 신규) | 신규 (C) |
+| diligence-issue-extraction | M&A | 실사 문서 → 한국 실사 카테고리별 이슈 메모 | ✅ 포팅 완료 (C) |
+| tabular-review | M&A | 문서세트 표 검토, 셀별 인용, xlsx·csv·md 출력 | ✅ 포팅 완료 (C) |
+| material-contract-schedule | M&A | 진술보장 정의 기준 중요계약 공개목록 | ✅ 포팅 완료 (C) |
+| closing-checklist | M&A | 종결 체크리스트 — 기업결합신고·주총특별결의·채권자보호 | ✅ 포팅 완료 (C) |
+| deal-team-summary | M&A | 계층 브리프 (경영진/딜리드/실무) | ✅ 포팅 완료 (C) |
+| **merger-control-filing** | M&A | 공정거래법 기업결합신고 (KR 신규) | ✅ 신규 완료 (C) |
 | ai-tool-handoff | M&A | Luminance/Kira 핸드오프 (옵션) | 포팅 예정 (D) |
 | integration-management | M&A | 종결 후 통합(PMI)·승계동의·필수동의 트래커 | 포팅 예정 (D) |
 | board-minutes | 이사회 | 이사회 의사록 (§391-3·공증) | 포팅 예정 (D) |
