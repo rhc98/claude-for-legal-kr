@@ -1,0 +1,29 @@
+{
+  "name": "corporate-legal",
+  "version": "0.1.0",
+  "description": "한국 회사법무 실무 — M&A 실사 이슈추출·셀별 인용 표 검토·공개목록·거래종결 체크리스트, 공정거래법 기업결합신고, 이사회 의사록·서면결의, 주주총회 운영, 상업등기 변경등기 기한·법인 컴플라이언스 추적. 상법(회사편)·자본시장법·외부감사법·상업등기법·공정거래법 기반. 법망 MCP 조문·판례 검증. claude-for-legal-kr 포팅.",
+  "keywords": [
+    "corporate",
+    "m&a",
+    "governance",
+    "korea",
+    "한국",
+    "상법",
+    "회사법",
+    "기업결합신고",
+    "이사회",
+    "의사록",
+    "주주총회",
+    "상업등기",
+    "자본시장법",
+    "실사",
+    "due-diligence",
+    "공개목록",
+    "거래종결"
+  ],
+  "author": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "homepage": "https://github.com/rhc98/claude-for-legal-kr",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "beopmang": {
+      "type": "http",
+      "url": "https://api.beopmang.org/mcp",
+      "title": "법망 (Beopmang)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 상법·자본시장법·외부감사법·상업등기법·공정거래법 등 조회·검증에 사용. 인증 불필요. 분당 100회 제한(IP/클라이언트 단위 추정). 환각방지 인용 검증 도구 포함. 1차 데이터: 법제처·국회 Open API."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 딜팀 브리핑, 종결 체크 알림, 이사회 일정·에스컬레이션에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 시드 문서(이사회 의사록·서면결의 선례·실사 요청목록·정관) 로드에 사용."
+    },
+    "Box": {
+      "type": "http",
+      "url": "https://mcp.box.com/mcp",
+      "title": "Box",
+      "description": "데이터룸(VDR)·문서 관리. M&A 실사 문서 검토에 사용. Intralinks·Datasite 등 파트너 VDR 커넥터는 URL 확보 시 추가."
+    }
+  },
+  "recommendedCategories": [
+    "legal-document-management",
+    "virtual-data-room",
+    "contract-review",
+    "board-governance",
+    "documents",
+    "chat",
+    "legal-research"
+  ]
+}
