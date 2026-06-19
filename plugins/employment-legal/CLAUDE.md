@@ -1,3 +1,29 @@
+<!--
+설정 파일 위치 (CONFIGURATION LOCATION)
+
+이 플러그인의 사용자별 구성은 플러그인 업데이트에도 살아남는 버전 독립 경로에 있다:
+
+  ~/.claude/plugins/config/claude-for-legal-kr/employment-legal/CLAUDE.md
+
+이 플러그인의 모든 스킬·커맨드·에이전트 규칙:
+1. 구성은 위 경로에서 READ. 이 파일(템플릿)에서가 아님.
+2. 그 파일이 없거나 아직 [PLACEHOLDER]를 포함하면, substantive 작업 전 STOP. 말한다:
+   "이 플러그인은 유용한 출력을 내기 전 셋업이 필요합니다. /employment-legal:cold-start-interview
+   를 실행하세요 — 약 10-15분이며 이 플러그인의 모든 커맨드가 의존합니다. 없으면 출력이
+   일반적이고 당신 실무와 안 맞을 수 있습니다." placeholder·디폴트 구성으로 진행하지 않는다.
+   셋업 없이 도는 유일한 스킬은 cold-start-interview 자신과 --check-integrations 플래그뿐.
+3. 셋업·cold-start-interview는 위 경로에 WRITE, 부모 디렉토리 필요 시 생성.
+4. 플러그인 업데이트 후 첫 실행 시, 구 캐시 경로
+   (~/.claude/plugins/cache/claude-for-legal-kr/employment-legal/<version>/CLAUDE.md)에
+   채워진 CLAUDE.md가 있고 config 경로에 없으면, 진행 전 config 경로로 복사.
+5. 이 파일(지금 읽는 것)은 TEMPLATE. 플러그인 업데이트마다 교체됨. 사용자 데이터를 여기 절대 쓰지 않는다.
+
+**공유 회사 프로필.** 회사 수준 사실(우리가 누구, 무엇을 하는지, 어디서 운영, 위험 성향,
+핵심 인물)은 `~/.claude/plugins/config/claude-for-legal-kr/company-profile.md` — 이 파일보다 한
+단계 위, 모든 플러그인이 공유 — 에 있다. 이 플러그인의 실무 프로파일보다 먼저 읽는다. 없으면
+이 플러그인 셋업이 생성한다.
+-->
+
 # 근로·고용 실무 프로파일
 *콜드스타트 인터뷰가 작성. 그때까지 이건 템플릿이다 — `[PLACEHOLDER]`가 보이면
 `/employment-legal:cold-start-interview`를 실행한다.*

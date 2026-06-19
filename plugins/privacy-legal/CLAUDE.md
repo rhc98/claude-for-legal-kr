@@ -1,36 +1,27 @@
 <!--
-설정 파일 위치
+설정 파일 위치 (CONFIGURATION LOCATION)
 
-이 플러그인의 사용자별 설정은 플러그인 업데이트와 무관한 경로에 저장된다:
+이 플러그인의 사용자별 구성은 플러그인 업데이트에도 살아남는 버전 독립 경로에 있다:
 
   ~/.claude/plugins/config/claude-for-legal-kr/privacy-legal/CLAUDE.md
 
-이 플러그인의 모든 스킬·커맨드·에이전트가 따라야 할 규칙:
-1. 설정은 위 경로에서 READ. 이 파일에서가 아님.
-2. 위 경로 파일이 없거나 아직 `[PLACEHOLDER]` 마커가 남아 있으면, 본격적인 작업
-   전에 멈춘다. 다음 메시지를 보낸다:
-   "이 플러그인을 의미 있게 쓰려면 셋업이 먼저 필요합니다. `/privacy-legal:cold-start-interview`를
-   실행해 주세요 — 약 10-15분 걸리고, 이 플러그인의 모든 커맨드가 이 인터뷰
-   결과를 참조합니다. 셋업 없이는 출력이 일반적이고 귀하 실무에 맞지
-   않을 수 있습니다."
-   셋업 없이 작동해도 되는 스킬은 `/privacy-legal:cold-start-interview` 본인과
-   `--check-integrations` 플래그뿐이다.
-3. 셋업과 cold-start-interview는 위 경로에 WRITE한다. 필요 시 상위 디렉토리도
-   생성한다.
-4. 플러그인 업데이트 직후 처음 실행할 때, 옛 캐시 경로
-   (`~/.claude/plugins/cache/claude-for-legal-kr/privacy-legal/<버전>/CLAUDE.md`,
-   어떤 버전이든)에 채워진 CLAUDE.md가 있고 config 경로에는 없다면, 캐시 본을
-   config 경로로 복사한 뒤에 진행한다.
-5. 지금 읽고 있는 이 파일은 **템플릿**이다. 플러그인과 함께 배포되며 config가
-   어떤 구조여야 하는지 보여준다. 플러그인 업데이트마다 덮어쓰인다. **여기에
-   사용자 데이터를 절대 쓰지 않는다.**
+이 플러그인의 모든 스킬·커맨드·에이전트 규칙:
+1. 구성은 위 경로에서 READ. 이 파일(템플릿)에서가 아님.
+2. 그 파일이 없거나 아직 [PLACEHOLDER]를 포함하면, substantive 작업 전 STOP. 말한다:
+   "이 플러그인은 유용한 출력을 내기 전 셋업이 필요합니다. /privacy-legal:cold-start-interview
+   를 실행하세요 — 약 10-15분이며 이 플러그인의 모든 커맨드가 의존합니다. 없으면 출력이
+   일반적이고 당신 실무와 안 맞을 수 있습니다." placeholder·디폴트 구성으로 진행하지 않는다.
+   셋업 없이 도는 유일한 스킬은 cold-start-interview 자신과 --check-integrations 플래그뿐.
+3. 셋업·cold-start-interview는 위 경로에 WRITE, 부모 디렉토리 필요 시 생성.
+4. 플러그인 업데이트 후 첫 실행 시, 구 캐시 경로
+   (~/.claude/plugins/cache/claude-for-legal-kr/privacy-legal/<version>/CLAUDE.md)에
+   채워진 CLAUDE.md가 있고 config 경로에 없으면, 진행 전 config 경로로 복사.
+5. 이 파일(지금 읽는 것)은 TEMPLATE. 플러그인 업데이트마다 교체됨. 사용자 데이터를 여기 절대 쓰지 않는다.
 
-**공유 회사 프로필.** 회사 수준 사실(누구·무엇·어디·위험 성향·핵심
-담당자)은 `~/.claude/plugins/config/claude-for-legal-kr/company-profile.md`에
-— 이 파일보다 한 단계 위에, 모든 플러그인이 공유 — 저장한다. 이 플러그인의
-프로파일 전에 회사 프로필을 먼저 읽는다. 회사 프로필이 없다면 이 플러그인의
-셋업이 만든다.
-
+**공유 회사 프로필.** 회사 수준 사실(우리가 누구, 무엇을 하는지, 어디서 운영, 위험 성향,
+핵심 인물)은 `~/.claude/plugins/config/claude-for-legal-kr/company-profile.md` — 이 파일보다 한
+단계 위, 모든 플러그인이 공유 — 에 있다. 이 플러그인의 실무 프로파일보다 먼저 읽는다. 없으면
+이 플러그인 셋업이 생성한다.
 -->
 
 # 개인정보 실무 프로파일
