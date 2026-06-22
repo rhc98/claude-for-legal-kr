@@ -4,10 +4,15 @@
 > (Apache 2.0)의 **한국 법체계 포팅**.
 > 법망 MCP(`https://api.beopmang.org/mcp`)를 런타임 데이터 소스로 사용해 한국 법령·판례 위에서 실제 동작합니다.
 
-**현재 상태**: 3개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
+**현재 상태**: 6개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
 `ai-governance-legal`(AI 거버넌스 실무 — AI 기본법 2026.1.22. 시행 + PIPA §37-2 자동화된 결정),
-`commercial-legal`(상사·계약 실무 — 약관규제법·하도급법·소비자보호). 나머지 7개 플러그인은
+`commercial-legal`(상사·계약 실무 — 약관규제법·하도급법·소비자보호),
+`employment-legal`(근로·고용·인사 — 근로기준법·남녀고용평등법),
+`corporate-legal`(회사법무 — 상법·자본시장법·기업결합신고),
+`ip-legal`(지식재산 — 특허·상표·디자인·저작권·부정경쟁방지법·직무발명). 나머지 4개 플러그인
+(regulatory-legal, litigation-legal, law-student, legal-clinic)은
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) 가이드를 따라 동일한 패턴으로 한국화 가능합니다.
+(litigation·regulatory는 법망 판례·의안 데이터 의존도가 높아 법망 MCP 복구 후 진행 권장.)
 
 ---
 
@@ -154,7 +159,7 @@ claude-for-legal-kr/
 ├── NOTICE                               # 원본 attribution + 한국화 기여
 ├── README.md                            # 이 파일
 ├── docs/
-│   ├── PORTING_GUIDE.md                 # 다른 7개 플러그인 포팅 가이드
+│   ├── PORTING_GUIDE.md                 # 남은 플러그인 포팅 가이드
 │   ├── BEOPMANG_INTEGRATION.md          # 법망 MCP 사용 패턴
 │   └── DATA_GAPS.md                     # 법망 미커버 데이터(행정 결정례 등)
 ├── plugins/
@@ -228,6 +233,17 @@ claude-for-legal-kr/
 │           ├── review-proposals/
 │           ├── subcontract-payment-protection/ # 신규 KR 전용 (하도급법)
 │           └── consumer-protection-overlay/     # 신규 KR 전용 (소비자보호 B2C)
+│   ├── employment-legal/                # ★ 4순위 풀세트 (근로기준법·남녀고용평등법)
+│   │   ├── .claude-plugin/ · .mcp.json · CLAUDE.md · README.md · hooks/ · references/
+│   │   └── skills/                      # 19개 스킬 (해고·근로자성·임금·괴롭힘 조사·취업규칙 등)
+│   ├── corporate-legal/                 # ★ 5순위 풀세트 (상법·자본시장법·기업결합신고)
+│   │   ├── .claude-plugin/ · .mcp.json · CLAUDE.md(모듈형) · README.md · hooks/ · references/
+│   │   ├── agents/dataroom-watcher.md
+│   │   └── skills/                      # 16개 스킬 (M&A 실사·표검토·이사회·주총·법인관리·공시)
+│   └── ip-legal/                        # ★ 6순위 풀세트 (특허·상표·디자인·저작권·부정경쟁방지법)
+│       ├── .claude-plugin/ · .mcp.json · CLAUDE.md · README.md · hooks/ · references/ip-currency-watch.md
+│       ├── agents/ip-renewal-watcher.md
+│       └── skills/                      # 클리어런스·FTO·침해·경고장·테이크다운·OSS·직무발명·영업비밀·포트폴리오
 ├── .claude-plugin/marketplace.json
 └── scripts/
     └── install-beopmang-mcp.sh
@@ -237,8 +253,7 @@ claude-for-legal-kr/
 
 ## 기여
 
-다른 7개 플러그인(corporate-legal, employment-legal, regulatory-legal,
-ip-legal, litigation-legal, law-student, legal-clinic)을
+남은 4개 플러그인(regulatory-legal, litigation-legal, law-student, legal-clinic)을
 한국화하고 싶으신가요?
 
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) — privacy-legal MVP에서 추출한
