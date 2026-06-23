@@ -1,0 +1,91 @@
+# IP 포트폴리오 등록부 (TEMPLATE/예시)
+#
+# 이 파일은 템플릿/예시일 뿐이다. 라이브 등록부는 config 경로에 있다:
+#   ~/.claude/plugins/config/claude-for-legal-kr/ip-legal/portfolio.yaml
+#   (config 디렉토리 — 플러그인 업데이트에도 살아남음)
+#
+# portfolio 스킬 Mode 1(초기화)·Mode 3(자산 추가)·Mode 4(상태 업데이트), IP 관리 시스템
+# (Anaqua·CPA Global·PatSnap·특허법인 시스템) 동기화, 그리고 수동 입력으로 채워진다.
+# 각 레코드는 한 권리가 언제 만료되고 언제까지 갱신·연차료를 내야 하는지를 추적한다.
+#
+# ip-renewal-watcher 에이전트가 주 1회 이 등록부를 읽어 다가오는 것을 알림 목적지에 게시한다.
+#
+# 키는 machine-stable 영문 — 바꾸지 않는다. 값·코멘트는 한국어.
+#
+# ⚠️ 존속기간·갱신기한·연차료(특허료)·요율은 특허청 고시로 변동된다 — 등록부의 계산 기한은
+#    모두 검증 플래그를 동반하고, 의존 전 KIPRIS·특허로(patent.go.kr)·특허청 고시로 대조한다.
+#    등록부는 surface 도구이지 권위 있는 1차 자료(특허청 등록원부)가 아니다.
+
+assets: []
+
+# --- 예시 레코드 (실제 데이터가 생기면 삭제) ---
+#
+# assets:
+#   - asset_id: "TM-001"                          # 내부 식별자
+#     right_type: "상표"                           # 특허 / 실용신안 / 상표 / 디자인 / 저작권 / 영업비밀(별도 관리 권장)
+#     title: "[브랜드/표장명]"                       # 상표·상호 / 발명의 명칭 / 디자인 물품명
+#     jurisdiction: "KR"                           # KR(특허청) / 마드리드 지정국 / PCT 진입국 등 — 외국 권리는 현지 대리인
+#     application_no: "40-2023-0001234"            # 출원번호
+#     registration_no: "40-2001234"               # 등록번호 (null이면 출원 계류)
+#     application_date: 2023-03-15                 # 출원일
+#     registration_date: 2024-09-01                # 설정등록일 (상표 존속기간 기산점 — 디자인은 출원일 기산)
+#     term_end: 2034-09-01                         # 존속기간 만료일 — 상표 등록일+10년 [특허청 고시 — 직접 검증 필요]
+#     next_action: "갱신등록신청"                    # 갱신등록신청 / 연차등록료(특허료) 납부 / 분할납부 / 회복
+#     next_action_due: 2033-09-01                  # 갱신·연차료 기한 — 상표는 존속기간 만료 전 1년 이내 신청 가능
+#     next_action_due_provenance: "[특허청 고시 — 직접 검증 필요]"   # 계산 기한엔 항상 검증 플래그 동반
+#     grace_end: 2034-03-01                        # 추가납부·추가기간 종료일 (있으면) — 상표 만료 후 6개월 추가 등 [검증 필요]
+#     status: "registered"                         # pending(출원계류) | registered(등록) | grace(추가기간) | lapsed(소멸) | abandoned(포기)
+#     owner: "(주)[회사명]"                          # 권리자
+#     business_owner: "브랜드팀 / 지현"              # 사업 담당자 (핑 대상)
+#     agent_firm: "[특허법인]"                       # 출원·갱신 대리 변리사 / 외국 권리는 현지 대리인
+#     docket_id: "FIRM-TM-555"                      # 대리인 사건번호 / IP 관리 시스템 ID
+#     agent_managed: false                         # 대리인이 갱신 기한을 관리하면 true (외국 권리 등)
+#     kipris_verified: 2026-06-01                  # KIPRIS 등록현황 최종 대조일 [KIPRIS — 직접 검증 필요]
+#     next_review: 2033-03-01                       # 등록부 다음 점검일
+#     notes: "주력 브랜드 — 갱신 필수. 지정상품 사용실태 점검(불사용취소 리스크)."
+#
+#   - asset_id: "PT-001"
+#     right_type: "특허"
+#     title: "[발명의 명칭]"
+#     jurisdiction: "KR"
+#     application_no: "10-2020-0099999"
+#     registration_no: "10-2999999"
+#     application_date: 2020-05-10                  # 특허 존속기간 기산점 (출원일+20년)
+#     registration_date: 2022-11-20                 # 연차등록료(특허료) 납부 의무 시작
+#     term_end: 2040-05-10                          # 출원일+20년 [특허청 고시 — 직접 검증 필요] (존속기간 연장 별도)
+#     next_action: "연차등록료(특허료) 납부"
+#     next_action_due: 2026-11-20                   # 차기 연차료 납부기한 [특허청 수수료/기한 — 직접 검증 필요]
+#     next_action_due_provenance: "[특허청 고시 — 직접 검증 필요]"
+#     grace_end: 2027-05-20                          # 추가납부기간(6개월, 할증) 종료일 [검증 필요]
+#     status: "registered"
+#     owner: "(주)[회사명]"
+#     business_owner: "R&D / 민수"
+#     agent_firm: "[특허법인]"
+#     docket_id: "FIRM-PT-777"
+#     agent_managed: false
+#     kipris_verified: 2026-06-01
+#     next_review: 2026-08-20
+#     notes: "핵심 제품 라인. 제품 단종 검토 중 — 차기 연차료 납부 전 유지 여부 결정 [검토]."
+#
+#   - asset_id: "DS-001"
+#     right_type: "디자인"
+#     title: "[물품명]"
+#     jurisdiction: "KR"
+#     application_no: "30-2021-0005555"
+#     registration_no: "30-1055555"
+#     application_date: 2021-07-01                  # 디자인 존속기간 기산점 (출원일 후 20년 — 디자인보호법 §91)
+#     registration_date: 2022-01-15                 # 권리 발생일 (존속기간 기산점 아님)
+#     term_end: 2041-07-01                           # 출원일 후 20년 [특허청 고시 — 직접 검증 필요]
+#     next_action: "연차등록료 납부"
+#     next_action_due: 2027-01-15
+#     next_action_due_provenance: "[특허청 고시 — 직접 검증 필요]"
+#     grace_end: null
+#     status: "registered"
+#     owner: "(주)[회사명]"
+#     business_owner: "디자인팀 / 수아"
+#     agent_firm: "[특허법인]"
+#     docket_id: "FIRM-DS-222"
+#     agent_managed: false
+#     kipris_verified: 2026-06-01
+#     next_review: 2026-11-15
+#     notes: "관련디자인 출원 여부 검토."

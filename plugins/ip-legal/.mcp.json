@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "beopmang": {
+      "type": "http",
+      "url": "https://api.beopmang.org/mcp",
+      "title": "법망 (Beopmang)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 특허법·실용신안법·상표법·디자인보호법·저작권법·부정경쟁방지법·발명진흥법 등 조회·검증에 사용. 인증 불필요. 분당 100회 제한(IP/클라이언트 단위 추정). 환각방지 인용 검증 도구 포함. 1차 데이터: 법제처·국회 Open API. ⚠️ 특허청 KIPRIS(상표·특허·디자인 등록원부)·특허심판원 심결은 미커버 — 별도 검증 필요."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 권리화·갱신 기한 알림, 침해 대응 에스컬레이션, 브랜드 모니터링 알림에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 시드 문서(경고장 선례·라이선스 계약·직무발명 보상규정·포트폴리오 대장·출원명세서) 로드에 사용."
+    },
+    "Box": {
+      "type": "http",
+      "url": "https://mcp.box.com/mcp",
+      "title": "Box",
+      "description": "문서 관리·저장소. IP 계약·라이선스·실사 문서 검토에 사용."
+    }
+  },
+  "recommendedCategories": [
+    "legal-document-management",
+    "contract-review",
+    "intellectual-property",
+    "documents",
+    "chat",
+    "legal-research"
+  ]
+}

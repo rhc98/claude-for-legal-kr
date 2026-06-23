@@ -1,0 +1,35 @@
+{
+  "name": "ip-legal",
+  "version": "0.1.0",
+  "description": "한국 지식재산 실무 — 상표 등록가능성(클리어런스)·자유실시(FTO) 트리아지, 발명 특허성 스크리닝, 침해 트리아지·대응 라우팅, 경고장·저작권법 §103 중단요청(테이크다운) 초안, 오픈소스 라이선스 컴플라이언스, IP 계약조항 검토, 직무발명 보상·영업비밀 보호, 등록·갱신 기한 추적. 특허법·실용신안법·상표법·디자인보호법·저작권법·부정경쟁방지법·발명진흥법 기반. 법망 MCP 조문·판례 검증. claude-for-legal-kr 포팅.",
+  "keywords": [
+    "intellectual-property",
+    "ip",
+    "patent",
+    "trademark",
+    "copyright",
+    "korea",
+    "한국",
+    "지식재산",
+    "특허법",
+    "상표법",
+    "디자인보호법",
+    "저작권법",
+    "부정경쟁방지법",
+    "영업비밀",
+    "직무발명",
+    "발명진흥법",
+    "오픈소스",
+    "oss",
+    "클리어런스",
+    "침해",
+    "경고장",
+    "특허청",
+    "kipris"
+  ],
+  "author": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "homepage": "https://github.com/rhc98/claude-for-legal-kr",
+  "license": "Apache-2.0"
+}
