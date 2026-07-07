@@ -1,6 +1,6 @@
 {
   "name": "claude-for-legal-kr",
-  "description": "claude-for-legal의 한국 법체계 포팅. Korean-jurisdiction adaptation of Anthropic's claude-for-legal plugins, powered by the Beopmang MCP (https://api.beopmang.org/mcp) for Korean statutes and case law.",
+  "description": "claude-for-legal의 한국 법체계 포팅. Korean-jurisdiction adaptation of Anthropic's claude-for-legal plugins, powered by the korean-law MCP (https://mcp.gomdori.app/law) for Korean statutes and case law.",
   "owner": {
     "name": "claude-for-legal-kr contributors"
   },
@@ -8,7 +8,7 @@
     {
       "name": "privacy-legal",
       "source": "./plugins/privacy-legal",
-      "description": "한국 개인정보보호법(PIPA) 실무 — 처리 활동 트리아지, 개인정보 영향평가(PIA) 작성, 위·수탁계약(DPA) 검토(수탁자/위탁자 양방향), 정보주체 권리행사(열람·정정·삭제) 응답 초안, PIPC 정책 변화 추적. 법망 MCP 기반 조문·판례 검증.",
+      "description": "한국 개인정보보호법(PIPA) 실무 — 처리 활동 트리아지, 개인정보 영향평가(PIA) 작성, 위·수탁계약(DPA) 검토(수탁자/위탁자 양방향), 정보주체 권리행사(열람·정정·삭제) 응답 초안, PIPC 정책 변화 추적. 국가법령정보 MCP 기반 조문·판례 검증.",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
@@ -16,7 +16,7 @@
     {
       "name": "ai-governance-legal",
       "source": "./plugins/ai-governance-legal",
-      "description": "한국 AI 거버넌스 실무 — AI 활용사례 트리아지, AI 시스템 인벤토리 관리, AI 영향평가(AIA) 작성, 벤더 AI 약관 검토(학습데이터 이용·책임 갭), AI 정책 초안·현행화. AI 기본법(2026.1.22. 시행) + PIPA §37-2(자동화된 결정) 기반. 법망 MCP 조문·판례 검증.",
+      "description": "한국 AI 거버넌스 실무 — AI 활용사례 트리아지, AI 시스템 인벤토리 관리, AI 영향평가(AIA) 작성, 벤더 AI 약관 검토(학습데이터 이용·책임 갭), AI 정책 초안·현행화. AI 기본법(2026.1.22. 시행) + PIPA §37-2(자동화된 결정) 기반. 국가법령정보 MCP 조문·판례 검증.",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
@@ -24,7 +24,7 @@
     {
       "name": "commercial-legal",
       "source": "./plugins/commercial-legal",
-      "description": "한국 상사·계약 실무 — 벤더계약·NDA·SaaS 약관을 매도인측/매수인측 플레이북 대조 검토, 약관규제법 불공정조항 점검, 갱신·해지통보 기한 추적, 하도급법 대금지급 보호, 소비자보호(B2C) overlay, 에스컬레이션·이해관계자 요약. 민법·상법·약관규제법·하도급법·공정거래법·표시광고법·부정경쟁방지법 기반. 법망 MCP 조문·판례 검증.",
+      "description": "한국 상사·계약 실무 — 벤더계약·NDA·SaaS 약관을 매도인측/매수인측 플레이북 대조 검토, 약관규제법 불공정조항 점검, 갱신·해지통보 기한 추적, 하도급법 대금지급 보호, 소비자보호(B2C) overlay, 에스컬레이션·이해관계자 요약. 민법·상법·약관규제법·하도급법·공정거래법·표시광고법·부정경쟁방지법 기반. 국가법령정보 MCP 조문·판례 검증.",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
@@ -32,7 +32,7 @@
     {
       "name": "employment-legal",
       "source": "./plugins/employment-legal",
-      "description": "한국 근로·고용·인사 실무 — 해고·징계의 정당성(근로기준법 §23) 검토, 근로자성 판단, 임금·근로시간(통상임금·주52시간·최저임금), 직장 내 괴롭힘·성희롱 조사, 취업규칙 작성·변경, 휴가·휴직 법정기한 관리. 상시 근로자 수 기준 적용 차등 인식. 근로기준법·남녀고용평등법·노조법·산재보험법·최저임금법 기반. 법망 MCP 조문·판례 검증.",
+      "description": "한국 근로·고용·인사 실무 — 해고·징계의 정당성(근로기준법 §23) 검토, 근로자성 판단, 임금·근로시간(통상임금·주52시간·최저임금), 직장 내 괴롭힘·성희롱 조사, 취업규칙 작성·변경, 휴가·휴직 법정기한 관리. 상시 근로자 수 기준 적용 차등 인식. 근로기준법·남녀고용평등법·노조법·산재보험법·최저임금법 기반. 국가법령정보 MCP 조문·판례 검증.",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
@@ -40,7 +40,7 @@
     {
       "name": "corporate-legal",
       "source": "./plugins/corporate-legal",
-      "description": "한국 회사법무 실무 — M&A 실사 이슈추출·셀별 인용 표 검토·공개목록·거래종결 체크리스트(기업결합신고·주총 특별결의·채권자보호절차), 공정거래법 기업결합신고, 이사회 의사록(§391-3·공증)·서면결의, 주주총회 운영, 상업등기 변경등기 기한·법인 컴플라이언스 추적. 상장/비상장·회사 규모별 적용범위 인식. 상법(회사편)·자본시장법·외부감사법·상업등기법·공정거래법 기반. 법망 MCP 조문·판례 검증. 전 스킬 포팅 완료 — 16개 스킬(M&A 실사·표검토·공개목록·종결체크·기업결합신고 / 이사회 의사록·서면결의 / 주주총회 / 상업등기 법인 컴플라이언스 / 상장사 공시) + dataroom-watcher 에이전트.",
+      "description": "한국 회사법무 실무 — M&A 실사 이슈추출·셀별 인용 표 검토·공개목록·거래종결 체크리스트(기업결합신고·주총 특별결의·채권자보호절차), 공정거래법 기업결합신고, 이사회 의사록(§391-3·공증)·서면결의, 주주총회 운영, 상업등기 변경등기 기한·법인 컴플라이언스 추적. 상장/비상장·회사 규모별 적용범위 인식. 상법(회사편)·자본시장법·외부감사법·상업등기법·공정거래법 기반. 국가법령정보 MCP 조문·판례 검증. 전 스킬 포팅 완료 — 16개 스킬(M&A 실사·표검토·공개목록·종결체크·기업결합신고 / 이사회 의사록·서면결의 / 주주총회 / 상업등기 법인 컴플라이언스 / 상장사 공시) + dataroom-watcher 에이전트.",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
@@ -48,7 +48,7 @@
     {
       "name": "ip-legal",
       "source": "./plugins/ip-legal",
-      "description": "한국 지식재산 실무 — 상표 등록가능성(클리어런스)·자유실시(FTO) 트리아지, 발명 특허성 스크리닝, 침해 트리아지·대응 라우팅, 경고장·저작권법 §103 중단요청(테이크다운) 초안, 오픈소스 라이선스 컴플라이언스, IP 계약조항 검토, 직무발명 보상(발명진흥법)·영업비밀 보호(부정경쟁방지법), 등록·갱신 기한 추적. 권리자/이용자 입장 인식, 속지주의·변리사·변호사 이원화 반영. 특허법·실용신안법·상표법·디자인보호법·저작권법·부정경쟁방지법·발명진흥법 기반. 법망 MCP 조문·판례 검증(특허청 KIPRIS·심판원 심결은 데이터 갭, 직접 검증).",
+      "description": "한국 지식재산 실무 — 상표 등록가능성(클리어런스)·자유실시(FTO) 트리아지, 발명 특허성 스크리닝, 침해 트리아지·대응 라우팅, 경고장·저작권법 §103 중단요청(테이크다운) 초안, 오픈소스 라이선스 컴플라이언스, IP 계약조항 검토, 직무발명 보상(발명진흥법)·영업비밀 보호(부정경쟁방지법), 등록·갱신 기한 추적. 권리자/이용자 입장 인식, 속지주의·변리사·변호사 이원화 반영. 특허법·실용신안법·상표법·디자인보호법·저작권법·부정경쟁방지법·발명진흥법 기반. 국가법령정보 MCP 조문·판례 검증(특허청 KIPRIS·심판원 심결은 데이터 갭, 직접 검증).",
       "author": {
         "name": "claude-for-legal-kr contributors"
       }

@@ -36,7 +36,7 @@ tools: ["Read", "Write", "mcp__anaqua__*", "mcp__cpa__*", "mcp__patsnap__*", "mc
 `~/.claude/plugins/config/claude-for-legal-kr/ip-legal/renewal-reports/[날짜].md`
 침묵으로 실패하지 않는다.
 
-**법망 MCP:** 이 에이전트는 법망을 호출하지 않는다 — 존속기간·기한은 portfolio 스킬이 계산하고,
+**국가법령정보 MCP:** 이 에이전트는 국가법령정보를 호출하지 않는다 — 존속기간·기한은 portfolio 스킬이 계산하고,
 모든 기한은 특허청 고시·KIPRIS 대조가 필요한 참조값으로 게시한다(`[특허청 고시 — 직접 검증 필요]`).
 
 **목적지 점검(영업비밀·미공개 발명 주의):** 게시 전 알림 목적지를 점검한다. 미공개 출원·영업비밀

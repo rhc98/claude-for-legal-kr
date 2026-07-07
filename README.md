@@ -2,7 +2,7 @@
 
 > [Anthropic의 claude-for-legal](https://github.com/anthropics/claude-for-legal)
 > (Apache 2.0)의 **한국 법체계 포팅**.
-> 법망 MCP(`https://api.beopmang.org/mcp`)를 런타임 데이터 소스로 사용해 한국 법령·판례 위에서 실제 동작합니다.
+> 국가법령정보 MCP(`korean-law`, `https://mcp.gomdori.app/law`)를 런타임 데이터 소스로 사용해 한국 법령·판례 위에서 실제 동작합니다.
 
 **현재 상태**: 6개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
 `ai-governance-legal`(AI 거버넌스 실무 — AI 기본법 2026.1.22. 시행 + PIPA §37-2 자동화된 결정),
@@ -12,7 +12,7 @@
 `ip-legal`(지식재산 — 특허·상표·디자인·저작권·부정경쟁방지법·직무발명). 나머지 4개 플러그인
 (regulatory-legal, litigation-legal, law-student, legal-clinic)은
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) 가이드를 따라 동일한 패턴으로 한국화 가능합니다.
-(litigation·regulatory는 법망 판례·의안 데이터 의존도가 높아 법망 MCP 복구 후 진행 권장.)
+(litigation·regulatory는 국가법령정보 판례·행정 결정 데이터 의존도가 높아 우선순위 검토 후 진행 권장.)
 
 ---
 
@@ -30,29 +30,31 @@
 이 포팅은 **플러그인 구조는 그대로 두고** 다음만 교체합니다:
 
 1. `CLAUDE.md` 실무 프로파일을 PIPA 중심으로 재작성
-2. `.mcp.json`의 서구 법률 커넥터를 법망 MCP로 교체
+2. `.mcp.json`의 서구 법률 커넥터를 국가법령정보 MCP로 교체
 3. 모든 `SKILL.md`의 조문 레퍼런스를 한국 법령으로 교체 + 인용 검증
-   강제(`mcp__beopmang__verify` 호출)
+   강제(`mcp__korean-law__legal_analysis {"mode": "verify_citations"}` 호출)
 
 결과: 한국 변호사·법무팀이 PIPA 컴플라이언스, DPA(위·수탁계약) 검토, DSAR(정보주체
 권리행사) 응답, PIA(개인정보 영향평가)에 그대로 쓸 수 있는 Claude Code 플러그인.
 
 ---
 
-## 왜 법망인가
+## 왜 국가법령정보 MCP인가
 
-[법망(Beopmang)](https://api.beopmang.org)은:
+[국가법령정보 MCP(`korean-law`)](https://mcp.gomdori.app/law)는:
 
-- 무료, 인증키 없음
-- 분당 100회 제한 (IP/클라이언트 단위로 추정 — 각 사용자가 자기 quota 사용)
-- 법령 6,000건 / 판례 172,000건 / 헌재결정 37,000건 / 행정규칙 24,000건 /
-  자치법규 159,000건 / 의안 114,000건 / 조약 4,000건 (2026년 3월 기준)
-- 조문 검색 5ms / 판례 검색 9ms
-- **환각방지 인용 검증** — 에이전트가 인용한 조문·판례 존재 여부 확인
-- **위임조문 체인 조회** — 법률 → 시행령 → 시행규칙을 1회 요청으로
-- 법제처·국회 Open API 1차 데이터 동기화(매주 토요일)
+- 무료 — 단, 법제처 국가법령정보 Open API의 **OC 인증키가 필요**합니다
+  (open.law.go.kr 가입 후 이메일로 즉시 발급, 약 1분). `?oc=<키>` 쿼리 또는
+  `LAW_OC` 환경변수로 전달.
+- 법제처 국가법령정보 Open API(open.law.go.kr)를 1차 소스로 사용 — 법령·판례·헌재결정·
+  행정규칙·자치법규·조약·법령해석례·행정심판재결·위원회결정문을 커버합니다.
+- **환각방지 인용 검증(`verify_citations`)** — 에이전트가 인용한 조문의 실존 여부 확인
+- **판례 생사 확인(`cite_check` / Citator)** — 인용 판례의 폐기·변경 감지
+- **통합 검색(`search_decisions`)** — 판례·헌재·조세심판·공정위·노동위 등 17개 도메인
+- **위임조문 체인 조회(`legal_research`)** — 법률 → 시행령 → 시행규칙 관계 추적
+- 원격 스트리머블 HTTP 엔드포인트로 라이브 동작 (`https://mcp.gomdori.app/law`)
 
-이 플러그인은 모든 조문·판례 인용을 법망으로 검증한 뒤 출력합니다. 가짜 조문은
+이 플러그인은 모든 조문·판례 인용을 국가법령정보 MCP로 검증한 뒤 출력합니다. 가짜 조문은
 `[unverified ✗]`로 표시됩니다.
 
 ---
@@ -62,21 +64,24 @@
 ### 0. 사전 요구
 
 - Claude Code (CLI 또는 Cowork)
-- 인터넷 연결 (법망 MCP는 원격 HTTP)
+- 인터넷 연결 (국가법령정보 MCP는 원격 HTTP)
+- 법제처 OC 인증키 — open.law.go.kr 가입 후 이메일로 즉시 발급(무료, 약 1분)
 
-### 1. 법망 MCP 등록
+### 1. 국가법령정보 MCP 등록
+
+`<OC키>`를 발급받은 인증키로 교체하세요:
 
 ```bash
-claude mcp add beopmang https://api.beopmang.org/mcp --transport http
+claude mcp add korean-law "https://mcp.gomdori.app/law?oc=<OC키>" --transport http
 ```
 
 확인:
 
 ```bash
 claude mcp list
-# beopmang: https://api.beopmang.org/mcp (http) - ✓ Connected
+# korean-law: https://mcp.gomdori.app/law?oc=... (http) - ✓ Connected
 
-claude mcp call beopmang law search "개인정보보호법"
+claude mcp call korean-law search_law "개인정보보호법"
 # {... 법령 검색 결과 ...}
 ```
 
@@ -136,8 +141,8 @@ claude plugin install privacy-legal@claude-for-legal-kr
 
 ## 면책
 
-- **법망 출력은 참고용 — 법적 효력 없음.** 1차 데이터(법제처·국회 Open API)도
-  동일하며, 정본은 관보·법령정보센터 원문입니다.
+- **국가법령정보 MCP 출력은 참고용 — 법적 효력 없음.** 1차 데이터(법제처 국가법령정보
+  Open API)도 동일하며, 정본은 관보·법령정보센터 원문입니다.
 - **모든 출력은 변호사 검토 전제의 초안입니다.** 변호사·의뢰인 비밀유지의 범위는
   업무 형태(사내·법무법인·공익)와 사안에 따라 다릅니다. 이 플러그인이 산출한
   문서를 외부 공개하기 전에 변호사·법무 관리자의 확인을 받으세요.
@@ -145,9 +150,9 @@ claude plugin install privacy-legal@claude-for-legal-kr
   "PRIVILEGED & CONFIDENTIAL" 표기는 비밀유지 의지 표시일 뿐이며, 그 자체가 공개
   거부 근거가 되지 않습니다. 자세한 내용은 `plugins/privacy-legal/CLAUDE.md`의
   Outputs 섹션 참조.
-- **법망 MCP의 분당 100회 제한은 공식 문서에 명시되지 않음** — IP/클라이언트
-  단위로 추정되나 정책 변경 가능성 있음. 429 응답 시 지수 백오프 후 사용자
-  알림으로 처리됩니다.
+- **국가법령정보 MCP는 OC 인증키가 필요하며, 호출 한도는 법제처 국가법령정보
+  Open API 정책을 따릅니다.** 별도의 고정 분당 한도를 여기서 단정하지 않습니다.
+  429 응답 시 지수 백오프 후 사용자 알림으로 처리됩니다.
 
 ---
 
@@ -160,12 +165,12 @@ claude-for-legal-kr/
 ├── README.md                            # 이 파일
 ├── docs/
 │   ├── PORTING_GUIDE.md                 # 남은 플러그인 포팅 가이드
-│   ├── BEOPMANG_INTEGRATION.md          # 법망 MCP 사용 패턴
-│   └── DATA_GAPS.md                     # 법망 미커버 데이터(행정 결정례 등)
+│   ├── LAW_MCP_INTEGRATION.md           # 국가법령정보 MCP 사용 패턴
+│   └── DATA_GAPS.md                     # 국가법령정보 미커버 데이터(등록원부 등)
 ├── plugins/
 │   ├── privacy-legal/                   # ★ 1순위 풀세트 (PIPA)
 │   │   ├── .claude-plugin/plugin.json
-│   │   ├── .mcp.json                    # 법망 + Slack + Google Drive
+│   │   ├── .mcp.json                    # 국가법령정보 + Slack + Google Drive
 │   │   ├── CLAUDE.md                    # PIPA 실무 프로파일 템플릿
 │   │   ├── README.md
 │   │   ├── hooks/hooks.json
@@ -186,7 +191,7 @@ claude-for-legal-kr/
 │   │       └── cross-border-transfer/   # 신규 KR 전용
 │   ├── ai-governance-legal/             # ★ 2순위 풀세트 (AI 기본법 + PIPA §37-2)
 │   │   ├── .claude-plugin/plugin.json
-│   │   ├── .mcp.json                    # 법망 + Slack + Google Drive
+│   │   ├── .mcp.json                    # 국가법령정보 + Slack + Google Drive
 │   │   ├── CLAUDE.md                    # AI 거버넌스 실무 프로파일 템플릿
 │   │   ├── README.md
 │   │   ├── hooks/hooks.json
@@ -207,7 +212,7 @@ claude-for-legal-kr/
 │   │       └── generative-ai-labeling/  # 신규 KR 전용 (AI 기본법 표시의무)
 │   └── commercial-legal/                # ★ 3순위 풀세트 (약관규제법·하도급법·소비자보호)
 │       ├── .claude-plugin/plugin.json
-│       ├── .mcp.json                    # 법망 + Slack + Google Drive
+│       ├── .mcp.json                    # 국가법령정보 + Slack + Google Drive
 │       ├── CLAUDE.md                    # 상사·계약 실무 프로파일 템플릿
 │       ├── README.md
 │       ├── hooks/hooks.json
@@ -246,7 +251,7 @@ claude-for-legal-kr/
 │       └── skills/                      # 클리어런스·FTO·침해·경고장·테이크다운·OSS·직무발명·영업비밀·포트폴리오
 ├── .claude-plugin/marketplace.json
 └── scripts/
-    └── install-beopmang-mcp.sh
+    └── install-korean-law-mcp.sh
 ```
 
 ---
@@ -257,7 +262,7 @@ claude-for-legal-kr/
 한국화하고 싶으신가요?
 
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) — privacy-legal MVP에서 추출한
-포팅 패턴(8단계 체크리스트 + 법망 통합 코드 스니펫 + CLAUDE.md 리라이트 템플릿).
+포팅 패턴(8단계 체크리스트 + 국가법령정보 통합 코드 스니펫 + CLAUDE.md 리라이트 템플릿).
 한 플러그인 완전 포팅에 약 2-3주(풀타임 1명 기준) 예상.
 
 이슈·PR 환영. 단, 한국 변호사·법무 실무자의 사전 검토를 거친 변경만
@@ -275,8 +280,8 @@ Apache License 2.0. 원본 `claude-for-legal`과 동일. 자세한 내용은
 ## 참고
 
 - 원본 레포: https://github.com/anthropics/claude-for-legal
-- 법망 API: https://api.beopmang.org
-- 법망 OpenAPI 명세: https://api.beopmang.org/openapi.json
+- 국가법령정보 MCP: https://mcp.gomdori.app/law
+- 법제처 국가법령정보 Open API (OC 인증키 발급): https://open.law.go.kr
 - 법제처 법령정보센터: https://www.law.go.kr
 - 국회 의안정보시스템: https://likms.assembly.go.kr/bill
 - 개인정보보호위원회: https://www.pipc.go.kr

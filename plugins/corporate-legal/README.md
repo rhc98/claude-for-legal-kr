@@ -1,7 +1,7 @@
 # corporate-legal — 한국 회사법무 플러그인
 
 > [Anthropic claude-for-legal `corporate-legal`](https://github.com/anthropics/claude-for-legal)의
-> **한국 법체계 포팅**. 법망 MCP(`https://api.beopmang.org/mcp`)로 상법·자본시장법·외감법·공정거래법
+> **한국 법체계 포팅**. 국가법령정보 MCP(`https://mcp.gomdori.app/law`)로 상법·자본시장법·외감법·공정거래법
 > 위에서 동작.
 
 사내 회사법무 워크플로우를 4개 모듈로 다룬다 — **M&A 딜 / 이사회·간사 / 상장사 / 법인관리**. 본인 역할에
@@ -16,7 +16,7 @@
 
 corporate-legal 플러그인의 **모든 스킬 포팅 완료** — 인프라 3 + M&A 핵심 6 + 이사회 2 + 법인관리 1 +
 M&A 부가 2 + KR 신규 상장사/주총 2 = **16개 스킬 + `dataroom-watcher` 에이전트 1개**. 남은 것은
-Phase F(E2E 런타임 검증 — 법망 MCP 복구 후 인용 verify). 상세는 [`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
+Phase F(E2E 런타임 검증 — 국가법령정보 MCP 복구 후 인용 verify). 상세는 [`skills/ROADMAP.md`](skills/ROADMAP.md) 참조.
 
 상류는 미국 다주 관할 + 미국 회사법(델라웨어) + SEC 공시가 전제다. 한국 포팅의 핵심 재맥락화:
 
@@ -83,16 +83,16 @@ Phase F(E2E 런타임 검증 — 법망 MCP 복구 후 인용 verify). 상세는
 
 `.mcp.json`에 포함:
 
-- **법망(beopmang)** — 한국 법령·판례 조회·검증. **1순위.** 없으면 모든 인용이 `[모델 지식 — 검증 필요]`.
+- **국가법령정보(korean-law)** — 한국 법령·판례 조회·검증. **1순위.** 없으면 모든 인용이 `[모델 지식 — 검증 필요]`.
 - **Slack** — 딜팀 브리핑·알림·에스컬레이션
 - **Google Drive** — 의사록·서면결의 선례·실사 요청목록·정관 로드
 - **Box** — 데이터룸(VDR)·문서 관리. Intralinks·Datasite 등은 URL 확보 시 추가.
 
 ---
 
-## 법망 데이터 갭 (corporate 특유)
+## 국가법령정보 데이터 갭 (corporate 특유)
 
-법망이 커버하지 않는 회사법무 자료는 사용자 제공 + 태그로 처리한다([`../../docs/DATA_GAPS.md`](../../docs/DATA_GAPS.md)):
+국가법령정보가 커버하지 않는 회사법무 자료는 사용자 제공 + 태그로 처리한다([`../../docs/DATA_GAPS.md`](../../docs/DATA_GAPS.md)):
 
 - **공정위 기업결합 심사 의결례** → `[공정위 의결 — 직접 검증 필요]`
 - **금융위·증선위·금감원 공시/제재 의결** → `[금융당국 의결 — 직접 검증 필요]`
