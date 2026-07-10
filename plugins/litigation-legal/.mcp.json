@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "korean-law": {
+      "type": "http",
+      "url": "https://mcp.gomdori.app/law?oc=${LAW_OC}",
+      "title": "국가법령정보 (korean-law MCP)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·조약·해석례·위원회결정. 민사소송법·민사집행법·형사소송법·행정소송법·가사소송법·중재법·소액사건심판법 등 절차법과 판례·헌재결정 조회·검증에 사용. 무료 OC 인증키 필요(환경변수 LAW_OC). 환각방지 인용검증(legal_analysis)·판례 생사확인 Citator(cite_check) 포함 — 소송에서 폐기·변경된 선례 인용 방지에 핵심. 법제처 open.law.go.kr Open API 기반. ⚠️ 전자소송·나의 사건검색(사건현황)은 공개 API 없음, 하급심 판결문 상당수 미공개 — 직접 확인 필요."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 기한 임박 알림, 기일 결과 공유, 상소 여부·에스컬레이션 논의에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 시드 문서(소장·답변서·준비서면 선례, 증거목록, 판결정본·기일통지서) 로드에 사용."
+    },
+    "Box": {
+      "type": "http",
+      "url": "https://mcp.box.com/mcp",
+      "title": "Box",
+      "description": "문서 관리·저장소. 사건기록·증거자료·서면 검토, 대량 문서 정리에 사용."
+    }
+  },
+  "recommendedCategories": [
+    "legal-document-management",
+    "legal-research",
+    "case-law",
+    "litigation",
+    "documents",
+    "chat"
+  ]
+}
