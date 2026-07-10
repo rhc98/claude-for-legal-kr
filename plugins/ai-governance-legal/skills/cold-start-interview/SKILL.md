@@ -26,7 +26,7 @@ argument-hint: "[--redo 재실행] [--check-integrations 통합만 재점검]"
 
 ## `--check-integrations`
 
-통합 가용성 점검(문서 저장소·Slack·스케줄드 태스크·**법망 MCP**)을 재실행하고
+통합 가용성 점검(문서 저장소·Slack·스케줄드 태스크·**국가법령정보 MCP**)을 재실행하고
 `~/.claude/plugins/config/claude-for-legal-kr/ai-governance-legal/CLAUDE.md`의
 `## 연결 가능한 통합` 섹션을 갱신. 재인터뷰는 하지 않음. MCP를 연결·해제한 뒤
 플러그인이 인식하길 원하지만 전체 셋업을 다시 돌리고 싶지 않을 때 사용.
@@ -35,13 +35,13 @@ argument-hint: "[--redo 재실행] [--check-integrations 통합만 재점검]"
 커넥터는 ⚪로 표시하고 확인 방법 한 줄 첨부. `.mcp.json` 선언만으로 ✓ 보고하지 않음 —
 사용자에게 "연결됨"으로 잘못 알려 trust를 깬다.
 
-**법망(beopmang) MCP는 이 플러그인에서 1순위 통합이다.** 미연결이면:
+**국가법령정보(korean-law) MCP는 이 플러그인에서 1순위 통합이다.** 미연결이면:
 - 모든 조문·판례 인용이 `[모델 지식 — 검증 필요]`로 떨어짐
 - 환각방지 검증이 동작하지 않음
-- **AI 기본법은 2026.1.22. 시행 신법이라 모델 지식이 특히 stale — 법망 없이는 거의 모든
+- **AI 기본법은 2026.1.22. 시행 신법이라 모델 지식이 특히 stale — 국가법령정보 없이는 거의 모든
   AI 기본법 조문 인용이 신뢰 불가**
-사용자에게 다음 안내: "법망 MCP를 등록하세요: `claude mcp add beopmang https://api.beopmang.org/mcp --transport http`.
-인증 불필요, 무료. 자세한 내용은 `docs/BEOPMANG_INTEGRATION.md` 참조."
+사용자에게 다음 안내: "국가법령정보 MCP를 등록하세요: `claude mcp add korean-law "https://mcp.gomdori.app/law?oc=<OC키>" --transport http`.
+무료 — open.law.go.kr에서 OC 인증키 발급 필요(1분). 자세한 내용은 `docs/LAW_MCP_INTEGRATION.md` 참조."
 
 ```
 /ai-governance-legal:cold-start-interview
@@ -212,9 +212,9 @@ surface: "임계점을 X라 하셨는데, 제 이해는 Y입니다 — 프로파
 
 **AI 기본법은 신법 — 셋업 단계에서 특히 조심.** 사용자가 AI 기본법 조문 번호나 의무를
 구체적으로 인용하면(예: "고영향 AI 영향평가는 의무다", "생성형 AI 표시의무 조문은 §XX다"),
-조문 번호를 하드코딩하기 전 법망에서 확인:
-`mcp__beopmang__law get "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"`. 강행 의무인지
-노력의무인지가 컴플라이언스 결론을 바꾼다. 법망 미연결이면 `[AI 기본법 현행 텍스트 대조 —
+조문 번호를 하드코딩하기 전 국가법령정보에서 확인:
+`mcp__korean-law__get_law_text "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"`. 강행 의무인지
+노력의무인지가 컴플라이언스 결론을 바꾼다. 국가법령정보 미연결이면 `[AI 기본법 현행 텍스트 대조 —
 검증 필요]` 태그로 쓰고 검토자 메모에 신법 경고를 남긴다.
 
 ## 인터뷰
@@ -308,7 +308,7 @@ sparse 프로파일보다 나쁘다.
 #### 무엇이 연결되어 있나?
 
 > 이 플러그인은 다음과 작업할 수 있습니다: 문서 저장소(Google Drive, SharePoint, Box),
-> Slack, 스케줄드 태스크, 그리고 **법망 MCP**(한국 법령·판례). 어느 커넥터가 구성되어
+> Slack, 스케줄드 태스크, 그리고 **국가법령정보 MCP**(한국 법령·판례). 어느 커넥터가 구성되어
 > 있는지 점검하겠습니다 — 필요한 기능은 동작하고, 없는 기능은 침묵으로 실패하지 않고
 > 수동으로 graceful하게 fallback합니다.
 
@@ -321,16 +321,16 @@ sparse 프로파일보다 나쁘다.
   확인하세요" + 한 줄 how-to.
 - 구성만으로 절대 ✓ 보고하지 않음.
 
-**법망 점검 구체:**
+**국가법령정보 점검 구체:**
 ```
-mcp__beopmang__law search "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"
+mcp__korean-law__search_law "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"
 ```
 응답 객체에 `laws` 또는 유사 필드와 1건 이상 결과가 있으면 ✓. 연결 오류·timeout·빈
-배열이면 ✗. (약칭 검색이 안 되면 `mcp__beopmang__law search "개인정보보호법"`으로 연결만 확인.)
+배열이면 ✗. (약칭 검색이 안 되면 `mcp__korean-law__search_law "개인정보보호법"`으로 연결만 확인.)
 
-연결되지 않은 커넥터에 대해 사용자에게 어떻게 연결하는지 알림. 예: "법망이 연결되지
-않았습니다. Claude Code: `claude mcp add beopmang https://api.beopmang.org/mcp --transport http`.
-이 플러그인은 법망 없이도 동작하지만 — 인용 검증이 모두 `[모델 지식 — 검증 필요]`로
+연결되지 않은 커넥터에 대해 사용자에게 어떻게 연결하는지 알림. 예: "국가법령정보가 연결되지
+않았습니다. Claude Code: `claude mcp add korean-law "https://mcp.gomdori.app/law?oc=<OC키>" --transport http`.
+이 플러그인은 국가법령정보 없이도 동작하지만 — 인용 검증이 모두 `[모델 지식 — 검증 필요]`로
 떨어집니다, 그리고 **AI 기본법은 신법이라 모델 지식이 특히 stale합니다** — 연결하면
 환각방지 검증이 활성됩니다." 또는 Google Drive 예: "Google Drive가 연결되지 않았습니다.
 Cowork: 설정 → 커넥터 → 추가 → Google Drive → 로그인. Claude Code: Drive MCP를 config에
@@ -344,7 +344,7 @@ policy-monitor 스킬이 영향평가 폴더를 자동 crawl합니다."
 > - ✗ [통합] — 발견 안 됨. [기능]은 [수동 대안]으로 fallback. [연결 방법]. 나중에 셋업하면
 >   `/ai-governance-legal:cold-start-interview --check-integrations` 재실행.
 >
-> 전부 필요하진 않습니다. 핵심 기능은 파일 접근만으로 동작. **단, 법망 MCP가 없으면 인용
+> 전부 필요하진 않습니다. 핵심 기능은 파일 접근만으로 동작. **단, 국가법령정보 MCP가 없으면 인용
 > 검증이 동작하지 않으니 의존 전 외부 검증이 필요합니다 — AI 기본법 신법이라 특히 중요.**
 
 #### CLAUDE.md에 기록
@@ -372,7 +372,7 @@ policy-monitor 스킬이 영향평가 폴더를 자동 crawl합니다."
 > `/ai-governance-legal:ai-inventory add`로 추가할 수 있습니다. 또는 인벤토리를 지금
 > skip해도 됩니다.
 
-사용자가 확실치 않으면 역할 옵션 walk through(법망 현행 텍스트로 확인, 조문 번호 하드코딩 금지):
+사용자가 확실치 않으면 역할 옵션 walk through(국가법령정보 현행 텍스트로 확인, 조문 번호 하드코딩 금지):
 - **AI개발사업자:** AI(또는 AI 시스템)를 개발·제작하는 사업자. `[AI 기본법 현행 텍스트 대조 — 검증 필요]`
 - **AI이용사업자:** 개발된 AI를 사업·업무에 이용·제공하는 사업자(사내에서 가장 흔함).
   `[AI 기본법 현행 텍스트 대조 — 검증 필요]`
@@ -617,16 +617,16 @@ mitigation이 어떻게 생겼는지. 이게 aia-generation 스킬의 디폴트 
 산출물이 바로 이사회 메모에 들어간다.
 
 자동화 가능한 검증:
-- 사용자가 인용한 AI 기본법 조문은 `mcp__beopmang__law get "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"`
-  으로 현행 텍스트 가져와 대조. 신법이라 모델 지식 신뢰 금지 — 법망 결과 우선.
-- 사용자가 인용한 PIPA 조항은 `mcp__beopmang__law get "개인정보보호법 제37조의2"` 등으로 대조.
-- 사용자가 인용한 PIPC·과기정통부 결정·고시는 *법망 미커버일 수 있음* — 사용자에게 PIPC
+- 사용자가 인용한 AI 기본법 조문은 `mcp__korean-law__get_law_text "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"`
+  으로 현행 텍스트 가져와 대조. 신법이라 모델 지식 신뢰 금지 — 국가법령정보 결과 우선.
+- 사용자가 인용한 PIPA 조항은 `mcp__korean-law__get_law_text "개인정보보호법 제37조의2"` 등으로 대조.
+- 사용자가 인용한 PIPC·과기정통부 결정·고시는 *국가법령정보 미커버일 수 있음* — 사용자에게 PIPC
   (`https://www.pipc.go.kr`)·과기정통부(`https://www.msit.go.kr`) 공식 URL 부탁.
 - 외국법(EU AI Act 등) 인용은 검증하지 않고 `[외국법 — 외국 변호사 검증 필요]` 태그만.
 
 작성 후, `verification-log.md`에 다음을 추가:
 
-`[YYYY-MM-DD] 콜드스타트 인터뷰 - [성명]이(가) 다음을 확인: [검증한 항목 목록] - 법망에 대조해 [확인 / 정정]`
+`[YYYY-MM-DD] 콜드스타트 인터뷰 - [성명]이(가) 다음을 확인: [검증한 항목 목록] - 국가법령정보에 대조해 [확인 / 정정]`
 
 ## 작성 후
 
@@ -695,9 +695,9 @@ yes면 다음 맞춤 목록 보여줌 (일반 템플릿이 아님 — 이 플러
    > 부자연스러우면 보통 여기서 고칩니다."
 
 6. **첫 트리아지 전:** 리서치 도구를 연결하세요. 없으면 모든 인용을 미검증으로 플래그합니다 —
-   있으면 현행 DB 대조 검증합니다. **AI 기본법은 신법이라 법망 검증이 특히 중요합니다.**
+   있으면 현행 DB 대조 검증합니다. **AI 기본법은 신법이라 국가법령정보 검증이 특히 중요합니다.**
    Cowork: 설정 → 커넥터. Claude Code: 스킬이 prompt할 때 인증, 또는
-   `claude mcp add beopmang https://api.beopmang.org/mcp --transport http`.
+   `claude mcp add korean-law "https://mcp.gomdori.app/law?oc=<OC키>" --transport http`.
 
 <!-- COLLATERAL LINKS: 온보딩 collateral이 존재하면 여기 추가:
      "walkthrough를 원하세요? [3분 인트로 영상](URL) 또는 [시작 가이드](URL)." -->
@@ -732,7 +732,7 @@ yes면 다음 맞춤 목록 보여줌 (일반 템플릿이 아님 — 이 플러
   수 있음. 인터뷰는 여전히 가치 있음; 어느 섹션이 명시 입장 vs 검토 문서 기반인지 프로파일에
   명확히.
 - **AI 기본법 조문을 confident하게 단언하지 마라.** 2026.1.22. 시행 신법 — 조문 번호·의무
-  성격(강행 vs 노력)을 법망 또는 과기정통부 고시로 확인 전 하드코딩 금지. 미확인이면
+  성격(강행 vs 노력)을 국가법령정보 또는 과기정통부 고시로 확인 전 하드코딩 금지. 미확인이면
   `[AI 기본법 현행 텍스트 대조 — 검증 필요]`.
 - **이걸 개인정보 인터뷰와 합치지 마라.** 겹침은 실재 — 영향평가·벤더 평가·정책 프레임워크,
   그리고 PIPA §37-2 자동화된 결정 — 하지만 orientation이 충분히 달라 함께 돌리면 sharpness를

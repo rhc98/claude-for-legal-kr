@@ -58,22 +58,22 @@ argument-hint: "[벤더명, 또는 계약 첨부]"
 
 **한국법 컨텍스트.** 1차법은 **AI 기본법**(시행 2026.1.22.) + **PIPA**(§26 위·수탁, §28-8
 국외이전, §37-2 자동화된 결정). AI 기본법은 2026.1.22. 시행된 신법으로 하위 고시·시행령이
-정착 중 — 조문 번호를 하드코딩하지 말고 법망에서 가져오고 검증 태그를 붙인다. 외국법
+정착 중 — 조문 번호를 하드코딩하지 말고 국가법령정보에서 가져오고 검증 태그를 붙인다. 외국법
 (EU AI Act provider/deployer 의무가 벤더 계약으로 흘러들어옴, 미국 주법)은 overlay이며
 `[외국법 — 외국 변호사 검증 필요]`.
 
-법망 호출 예:
+국가법령정보 호출 예:
 ```
-mcp__beopmang__law get "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"
-mcp__beopmang__law get "개인정보보호법 제26조"
-mcp__beopmang__law get "개인정보보호법 제28조의8"   # 국외이전
-mcp__beopmang__law get "개인정보보호법 제37조의2"   # 자동화된 결정
-mcp__beopmang__tools verify {"citation": "..."}
+mcp__korean-law__get_law_text "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법"
+mcp__korean-law__get_law_text "개인정보보호법 제26조"
+mcp__korean-law__get_law_text "개인정보보호법 제28조의8"   # 국외이전
+mcp__korean-law__get_law_text "개인정보보호법 제37조의2"   # 자동화된 결정
+mcp__korean-law__legal_analysis {"mode": "verify_citations", "citation": "..."}
 ```
 
-> **AI 기본법 신법 경고.** 법망 미연결이면 AI 기본법 조문 인용은 전부 `[모델 지식 — 검증 필요]`
+> **AI 기본법 신법 경고.** 국가법령정보 미연결이면 AI 기본법 조문 인용은 전부 `[모델 지식 — 검증 필요]`
 > + `[AI 기본법 현행 텍스트 대조 — 검증 필요]`로 떨어진다. 신법이라 fabrication·stale 위험
-> 최고. 조문 번호·하위규정은 법망 또는 과기정통부 고시 대조 필수.
+> 최고. 조문 번호·하위규정은 국가법령정보 또는 과기정통부 고시 대조 필수.
 
 ---
 

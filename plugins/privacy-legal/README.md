@@ -7,7 +7,7 @@ PIA(개인정보 영향평가) 작성, 위·수탁계약(DPA) 양방향 검토, 
 원본 [`anthropics/claude-for-legal`](https://github.com/anthropics/claude-for-legal)의
 `privacy-legal` 플러그인(Apache 2.0)을 한국 법체계로 포팅한 결과물입니다.
 
-**모든 출력은 변호사 검토 전제의 초안입니다** — 인용된 조문·판례는 법망 MCP로
+**모든 출력은 변호사 검토 전제의 초안입니다** — 인용된 조문·판례는 국가법령정보 MCP로
 검증해 표시하고, 변호사가 판단해야 할 지점은 `[검토]` 플래그를 답니다. 결정적
 행위(권리행사 응답 송부, DPA 서명, PIPC 자료 제출, 침해통지 발송)는 명시적 확인
 게이트를 통과해야 합니다.
@@ -109,7 +109,7 @@ drift를 감지해 업데이트를 제안합니다. 재셋업 실행, 파일 직
 ```
 privacy-legal/
 ├── .claude-plugin/plugin.json
-├── .mcp.json                       # 법망(beopmang) + Slack + Google Drive
+├── .mcp.json                       # 국가법령정보(korean-law) + Slack + Google Drive
 ├── CLAUDE.md                       # PIPA 실무 프로파일 템플릿
 ├── README.md                       # 이 파일
 ├── hooks/hooks.json
@@ -140,6 +140,6 @@ privacy-legal/
   다른 변화 방향에 다른 도구.
 - 정책 모니터는 sweep 동작을 위해 산출물 폴더 구성 필요(셋업 중 설정). 직접 질의 모드는
   그것 없이 동작.
-- **개인정보위 결정례, 분쟁조정 결정례, 노동위 판정례, 공정위 의결례는 법망에
+- **개인정보위 결정례, 분쟁조정 결정례, 노동위 판정례, 공정위 의결례는 국가법령정보에
   포함되어 있지 않습니다.** 이런 행정 결정례를 인용해야 하는 경우 수동 첨부 또는
   PIPC 공식 사이트 직접 검색으로 보완. `docs/DATA_GAPS.md` 참조.

@@ -16,8 +16,10 @@ Korean localization scope:
 - Skill prompts (skills/*/SKILL.md) re-authored to reference Korean
   statutes, regulators (PIPC, KISA), case law, and practice norms.
 - MCP connector set replaced: Western legal-research connectors
-  (CourtListener, Westlaw, Ironclad) removed; Beopmang MCP
-  (https://api.beopmang.org/mcp) added as the primary statute and
+  (CourtListener, Westlaw, Ironclad) removed; the korean-law MCP
+  (https://mcp.gomdori.app/law), backed by the Korean Ministry of
+  Government Legislation (법제처) National Law Information open API
+  (https://open.law.go.kr), added as the primary statute and
   case-law source.
 - Two new KR-specific skills added (pipa-spi-handling, cross-border-transfer).
 - All retained guardrail patterns (work-product header, source attribution
@@ -27,13 +29,13 @@ Korean localization scope:
   "attorney work product" doctrine does not exist in Korean law.
 
 Data sources used at runtime by this plugin:
-- Beopmang Open API (https://api.beopmang.org) — Korean statutes,
-  ordinances, case law, constitutional decisions, bills, administrative
-  rules, local ordinances, treaties, and interpretations. Beopmang
-  aggregates from the Korean Ministry of Government Legislation
-  (법제처) Open API and National Assembly (국회) Open API. Outputs
-  are reference material; not legal effect. Verify against primary
-  sources before relying.
+- korean-law MCP (https://mcp.gomdori.app/law) — provides Korean
+  statutes, case law, constitutional decisions, administrative rules,
+  local ordinances, treaties, interpretations, and committee decisions,
+  sourced from the Korean Ministry of Government Legislation (법제처)
+  National Law Information open API (https://open.law.go.kr). A free
+  OC key is required. Outputs are reference material; not legal effect.
+  Verify against primary sources before relying.
 
 The Apache License, Version 2.0 (the "License") governs use of this
 software. You may obtain a copy of the License in the LICENSE file in

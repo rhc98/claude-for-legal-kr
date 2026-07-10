@@ -1,10 +1,10 @@
 {
   "mcpServers": {
-    "beopmang": {
+    "korean-law": {
       "type": "http",
-      "url": "https://api.beopmang.org/mcp",
-      "title": "법망 (Beopmang)",
-      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 인증 불필요. 분당 100회 제한(IP/클라이언트 단위 추정). 환각방지 인용 검증 도구 포함. 1차 데이터: 법제처·국회 Open API."
+      "url": "https://mcp.gomdori.app/law?oc=${LAW_OC}",
+      "title": "국가법령정보 (korean-law MCP)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·의안·조약·해석례. 무료 OC 인증키 필요(환경변수 LAW_OC). 환각방지 인용검증(legal_analysis)·판례 Citator(cite_check) 포함. 법제처 open.law.go.kr Open API 기반."
     },
     "Slack": {
       "type": "http",

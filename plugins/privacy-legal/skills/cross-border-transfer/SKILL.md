@@ -46,16 +46,16 @@ argument-hint: "[국외이전 시나리오 설명]"
 
 ## 핵심 조문
 
-법망에서 현행 텍스트 가져오기:
+국가법령정보에서 현행 텍스트 가져오기:
 ```
-mcp__beopmang__law get "개인정보보호법 제28조의8"
-mcp__beopmang__law get "개인정보보호법 시행령 제29조의7"  # 인증
-mcp__beopmang__law get "개인정보보호법 시행령 제29조의8"  # 적정성 인정
-mcp__beopmang__law get "개인정보보호법 시행령 제29조의9"  # 안전조치
-mcp__beopmang__law get "개인정보보호법 시행령 제29조의10"  # 게재 사항
+mcp__korean-law__get_law_text "개인정보보호법 제28조의8"
+mcp__korean-law__get_law_text "개인정보보호법 시행령 제29조의7"  # 인증
+mcp__korean-law__get_law_text "개인정보보호법 시행령 제29조의8"  # 적정성 인정
+mcp__korean-law__get_law_text "개인정보보호법 시행령 제29조의9"  # 안전조치
+mcp__korean-law__get_law_text "개인정보보호법 시행령 제29조의10"  # 게재 사항
 ```
 
-`mcp__beopmang__tools verify` 호출로 인용 검증.
+`mcp__korean-law__legal_analysis (mode: verify_citations)` 호출로 인용 검증.
 
 ## 5개 트랙 개요
 
@@ -258,7 +258,7 @@ GCP europe-west는 EU GDPR 하에 있어 트랙 4 적용 가능 (단, 실제 데
 | 1. 별도 동의 | [예/아니오] | [이유] |
 | 2. 법률·조약 | [예/아니오] | [이유] |
 | 3. PIPC 인증 | [예/아니오] | [이유] |
-| 4. 적정성 인정국 | [예/아니오] | [목적지가 적정성 인정 여부] `[법망 ✓ 또는 PIPC 고시 확인 필요]` |
+| 4. 적정성 인정국 | [예/아니오] | [목적지가 적정성 인정 여부] `[국가법령정보 ✓ 또는 PIPC 고시 확인 필요]` |
 | 5. 안전조치 계약 | [예/아니오] | [이유] |
 
 ## 권고 트랙

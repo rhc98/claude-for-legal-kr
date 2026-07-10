@@ -161,8 +161,8 @@ user-invocable: false
 | 신체적·정신적 고통 또는 근무환경 악화 | §76-2 | `[검토]` | |
 
 ```
-mcp__beopmang__law get "근로기준법 제76조의2"
-mcp__beopmang__tools verify {"citation": "근로기준법 제76조의2"}
+mcp__korean-law__get_law_text "근로기준법 제76조의2"
+mcp__korean-law__legal_analysis {"mode": "verify_citations", "citation": "근로기준법 제76조의2"}
 ```
 
 ### 직장 내 성희롱 — 남녀고용평등법 §2 요건 대조
@@ -177,8 +177,8 @@ mcp__beopmang__tools verify {"citation": "근로기준법 제76조의2"}
 | 성적 굴욕감·혐오감 또는 불이익 | §2 | `[검토]` | |
 
 ```
-mcp__beopmang__law get "남녀고용평등법 제2조"
-mcp__beopmang__law get "남녀고용평등법 제14조"
+mcp__korean-law__get_law_text "남녀고용평등법 제2조"
+mcp__korean-law__get_law_text "남녀고용평등법 제14조"
 ```
 ```
 
@@ -242,7 +242,7 @@ mcp__beopmang__law get "남녀고용평등법 제14조"
 ## 검토자 메모
 
 > **⚠️ 검토자 메모**
-> - **소스:** [법망 ✓ 검증됨 | 미연결 — 인용은 모델 지식, 의존 전 검증 필요]
+> - **소스:** [국가법령정보 ✓ 검증됨 | 미연결 — 인용은 모델 지식, 의존 전 검증 필요]
 > - **읽기 범위:** [incident-log.md / 조사 메모 N건 / 진술 N건 / 증거 N건]
 > - **비밀유지 상태:** [헤더 적용 완료 / 배포 제한 경고 적용 완료]
 > - **검토자 판단 필요:** [사실 인정 섹션 전체 `[검토]` / 법령 해당성 `[검토]` / 징계 수위 `[검토]`]
