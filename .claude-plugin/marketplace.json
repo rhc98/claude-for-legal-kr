@@ -60,6 +60,14 @@
       "author": {
         "name": "claude-for-legal-kr contributors"
       }
+    },
+    {
+      "name": "regulatory-legal",
+      "source": "./plugins/regulatory-legal",
+      "description": "한국 규제 모니터링·입법예고 대응 실무 — 규제기관 피드 감시(개인정보위·금융위·공정위·식약처·방통위·고용노동부 등), 공포 법령·시행령·시행규칙 개정 추적(시행일 관리), 입법예고·행정예고 대응(의견제출 마감 관리), 국회 계류 법률안 워치, 정책 라이브러리 대조 diff, 재료성(materiality) 분류, 갭 트리아지, 주간 규제 다이제스트. 10 스킬 + reg-change-monitor 에이전트. 행정절차법·법령공포법·국회법 기반 절차. 국가법령정보 MCP 조문 검증(verify_citations로 조문 실존·현행 확인). ⚠️ 한국법에 미국식 Federal Register·NPRM/ANPR·attorney work-product 제도 없음 — 대륙법계 입법·행정예고 절차로 재설계. ⚠️ 국회 의안·입법예고 피드는 국가법령정보 MCP 범위 밖 — 국회 의안정보시스템·국민참여입법센터 직접 검색 + `[국회 의안시스템 — 직접 검증 필요]` 태그로 우회, 계류 의안은 절대 material 아님(watch 고정). claude-for-legal-kr 포팅.",
+      "author": {
+        "name": "claude-for-legal-kr contributors"
+      }
     }
   ]
 }
