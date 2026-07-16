@@ -37,7 +37,7 @@ Slack 메시지(배정 알림, 지연 리마인더, 일괄 알림, 상태 보고
 
 `~/.claude/plugins/config/claude-for-legal-kr/regulatory-legal/gap-tracker.yaml`에 있다:
 
-> **comment-tracker.yaml에 관한 노트:** `~/.claude/plugins/config/claude-for-legal-kr/regulatory-legal/comment-tracker.yaml`은 comments 스킬이 소유하는 형제 파일이다. reg-feed-watcher(입법예고·행정예고를 자동 기록)와 comments 스킬(사용자 주도 의견제출 결정을 추적)이 여기에 쓴다. 이 스킬은 그 파일을 읽거나 대조하지 않는다. comment-tracker 스키마를 수정하면 실제 사용자 양쪽(reg-feed-watcher, comments) 모두 갱신한다.
+> **comment-tracker.yaml에 관한 노트:** `~/.claude/plugins/config/claude-for-legal-kr/regulatory-legal/comment-tracker.yaml`은 comments 스킬이 소유하는(정본 스키마 포함) 형제 파일이다. reg-feed-watcher(입법예고·행정예고를 자동 기록)·bill-watch(국회입법예고 의견제출 마감이 열린 계류 의안을 `item_type: 의안`으로 기록)와 comments 스킬(사용자 주도 의견제출 결정을 추적)이 여기에 쓴다. 이 스킬은 그 파일을 읽거나 대조하지 않는다. comment-tracker 스키마를 수정하면 실제 사용자(reg-feed-watcher, bill-watch, comments) 모두 갱신한다.
 
 ```yaml
 gaps:
@@ -54,6 +54,7 @@ gaps:
     status: "open"  # open | in-progress | closed | risk-accepted
     notified: false  # 배정 알림 발송 후 true
     resolution: ""  # 종결 시 기재
+    stage: ""  # (선택) 의안 심사단계 — watch 항목 중 국회 계류 의안에만. bill-watch 전용. 예: 접수 | 위원회 심사 | 체계자구 | 본회의 의결 | 정부이송 | 공포
 ```
 
 **미검증 규정에 대해 갭을 Overdue로 절대 분류하지 않는다.** 🔴 Overdue 분류는 "구속력 있는 기한을 놓쳤다"를 뜻한다. 규정의 상태가 미검증이면(policy-diff가 `status_verified: false`로 설정했거나, 규정이 12개월 이상 지났거나 적용일이 지났는데 현행성 확인이 없으면), 그 기한은 구속력이 없을 수 있다. 🟡 "검토 필요"를 쓰고 덧붙인다: "이 규정이 공표된 대로 시행 중이라면 [N]일 지연입니다. 에스컬레이션 전 규정 상태를 확인하세요." 미검증 규정 항목은 활성 overdue·due-soon 버킷이 아닌 `watch`로 라우팅한다 — `watch`의 재검토 주기가 항목이 컴플라이언스 갭으로 다시 표면화되기 전 규정 상태 확인을 강제한다.
@@ -129,7 +130,7 @@ Slack MCP가 연결되어 있지 않으면: 상태 보고에 owner 알림이 발
 [확정 전 추적 — `watch`·`comment-decision` 항목. 이건 컴플라이언스 갭이 아니다.
 Overdue·due-soon 밴드에는 실제 컴플라이언스 기한만 남도록 별도 표면화한다.]
 
-| ID | 항목 | 유형(법률안/입법예고/행정예고) | 의견제출 마감 | Owner |
+| ID | 항목 | 유형(법률안/입법예고/행정예고) | 다음 재검토/마감 | Owner |
 |---|---|---|---|---|
 
 ### 진행 중

@@ -7,6 +7,10 @@ reg-feed-watcher의 출발 카탈로그. 콜드스타트 인터뷰가 어느 소
 것은 Notes에 `(verify)`로 표기했다. reg-feed-watcher가 실제 점검하기 전까지 `(verify)` 소스는
 `[검증 필요]`로 취급하고, 확인 후 태그를 제거·확정한다. **URL을 지어내 확정 서술하지 않는다.**
 
+**예외 — 정부 대표 도메인.** 정부 대표 도메인(`www.law.go.kr`, `likms.assembly.go.kr`, `gwanbo.go.kr` 등)은
+주지의 공식 엔드포인트로 `(verify)` 표기를 생략한다. 이 도메인에는 `(verify)`를 붙이지 않는다 — 단,
+개별 하위 경로(`/admRulLsInfoP.do` 등)나 RSS 유무는 여전히 확인이 필요하면 `(verify)`로 표기한다.
+
 **카탈로그 읽는 법:**
 - **Format** — 피드가 반환하는 것: MCP(국가법령정보 커넥터, 구조화·최선), JSON/RSS(반구조화), HTML
   페이지(스크래핑·변경 감지 필요), 이메일(메일링 구독).

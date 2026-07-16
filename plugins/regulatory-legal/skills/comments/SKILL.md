@@ -41,8 +41,32 @@ surface하고 결정을 기록한다.
 `~/.claude/plugins/config/claude-for-legal-kr/regulatory-legal/CLAUDE.md`
 → 의견제출 결정 owner, 비변호사 게이트 판정을 위한 `## 누가 이 플러그인을 사용하나`.
 
-> **파일명 유지.** 트래커 파일명은 `comment-tracker.yaml` 그대로다 — reg-feed-watcher가
-> 채우고 gap-surfacer가 소비하는 크로스 스킬 계약. 이름을 바꾸면 핸드오프가 깨진다.
+> **파일명 유지.** 트래커 파일명은 `comment-tracker.yaml` 그대로다 — reg-feed-watcher·bill-watch가
+> 채우고 comments가 소비·갱신하는 크로스 스킬 계약. 이름을 바꾸면 핸드오프가 깨진다.
+
+## comment-tracker.yaml 스키마 (이 스킬이 소유)
+
+이 파일의 **정본 스키마는 이 스킬(comments)이 소유한다.** reg-feed-watcher·bill-watch가 아래 키로
+행을 쓰고, comments가 읽어 뷰를 렌더하고 결정을 갱신한다. gap-surfacer는 이 파일을 읽지 않는다
+(gap-surfacer는 별도로 `gap-tracker.yaml`을 소유). 필드 키는 이 블록이 정본이다:
+
+```yaml
+comments:
+  - id: CMT-001                    # CMT-NNN
+    item_type: 입법예고             # 입법예고 | 행정예고 | 국회입법예고 | 의안
+    name: "[공고·의안 명칭]"
+    due: 2026-06-01                 # 의견제출 마감일 — gap-tracker.yaml의 due:와 키 이름 일치
+    decision: 미결정                # 미결정 | 제출 | 미제출 | 보류
+    reason: ""                      # decision 사유(제출/미제출/보류로 기록할 때 기재)
+    owner: "[의견제출 결정 owner — CLAUDE.md의 의견제출 결정 owner]"
+    owner_slack: "[Slack 사용자 ID 또는 핸들, 알면 — 비우면 알림 opt-out]"
+    status: open                    # open(추적 중) | closed(결정 완료·마감 종료)
+```
+
+> **`item_type: 의안`의 특례.** `의안` 행은 계류 법률안의 **국회입법예고 의견제출 마감**만 추적한다
+> (법안 통과·공포일 아님, `due:` = 국회입법예고 마감). 이 행은 국회입법예고 의견제출 기간이 실제로
+> 열려 있을 때만 생성한다 — 법안의 심사단계 추적과 gap-tracker.yaml의 `watch` 등록은
+> `/regulatory-legal:bill-watch`가 소유한다.
 
 ## 디폴트 뷰 — 열린 의견제출 기간
 
@@ -133,5 +157,6 @@ reg-feed-watcher가 새 입법예고·행정예고 항목을 처음 감지하면
   이후 입법·행정예고의 진행은 `/regulatory-legal:reg-feed-watcher`로 따라간다. 계류 법안의
   심사단계는 `/regulatory-legal:bill-watch`가 추적한다.
 
-> `comment-decision` `gap_type` 의미론, 발송별 Slack 확인 규칙, comment-tracker.yaml 스키마는
-> **gap-surfacer** 레퍼런스 스킬에 정본이 있다 — 실질 작업 전 로드한다.
+> **comment-tracker.yaml 스키마의 정본은 이 스킬이 소유한다**(위 `## comment-tracker.yaml 스키마
+> (이 스킬이 소유)` 블록). `comment-decision` `gap_type` 의미론과 발송별 Slack 확인 규칙은 gap-tracker의
+> watch·comment-decision 항목을 다루는 **gap-surfacer** 레퍼런스 스킬에 정본이 있다 — 실질 작업 전 로드한다.
