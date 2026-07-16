@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "korean-law": {
+      "type": "http",
+      "url": "https://mcp.gomdori.app/law?oc=${LAW_OC}",
+      "title": "국가법령정보 (korean-law MCP)",
+      "description": "한국 법령·판례·헌재결정·행정규칙·자치법규·조약·해석례·위원회결정. 공포 법령·시행령·시행규칙 개정 조회(현행/시행예정), 행정절차법·법령공포법·국회법 등 절차법 조문 검증, 행정규칙(고시·훈령·예규) 부분 검색, 위원회 결정례 부분 통합검색(search_decisions)에 사용. 무료 OC 인증키 필요(환경변수 LAW_OC). 환각방지 인용검증(legal_analysis verify_citations) 포함 — 규제 조문 인용의 실존·현행 확인에 핵심. 법제처 open.law.go.kr Open API 기반. ⚠️ 국회 의안(법률안)·입법예고·행정예고 피드는 커넥터 범위 밖 — 국회 의안정보시스템·국민참여입법센터 직접 검색 필요, 행정규칙·위원회 의결례는 부분 커버."
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "워크스페이스 채널 메시지·검색·읽기. 규제 변경 알림, 입법예고·의견제출 마감 공지, 재료성 판단·에스컬레이션 논의, 주간 다이제스트 배포에 사용."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "구글 드라이브 문서 검색·읽기·페치. 정책 라이브러리(사내 정책·컴플라이언스 매뉴얼·표준 서식), 규제 공고문·의견제출서 선례 로드에 사용."
+    }
+  },
+  "recommendedCategories": [
+    "legal-research",
+    "regulatory-intelligence",
+    "documents",
+    "chat",
+    "email"
+  ]
+}
