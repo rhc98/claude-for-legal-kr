@@ -105,6 +105,8 @@
 - 사이트: `https://likms.assembly.go.kr/bill`
 - 빈도: 입법예고·계류 법안 추적 — regulatory-legal 핵심
 - **임시 처리:** 국회 의안정보시스템 직접 검색. 인용에 `[국회 의안시스템 — 직접 검증 필요]` 태그.
+- **구현 현황:** regulatory-legal이 이 임시 처리 정책을 `reg-feed-watcher`(입법예고·행정예고 분기)·
+  `bill-watch`(계류 의안 직접 검색·watch 고정)에서 직접 검색 + 태그 워크플로우로 구현했다.
 
 ### 2. 국가법령정보 부분 커버 영역
 

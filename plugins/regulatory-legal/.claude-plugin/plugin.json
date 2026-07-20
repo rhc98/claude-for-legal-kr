@@ -1,0 +1,38 @@
+{
+  "name": "regulatory-legal",
+  "version": "0.1.0",
+  "description": "한국 규제 대응·입법 모니터링 실무 — 규제기관 피드 감시(개인정보위·금융위·공정위·식약처·방통위·고용노동부 등), 공포 법령·시행령·시행규칙 개정 추적(시행일 관리), 입법예고·행정예고 대응(의견제출 마감 관리), 국회 계류 법률안 워치, 정책 라이브러리 대조 diff, 재료성(materiality) 분류, 갭 트리아지, 주간 다이제스트 작성. 행정절차법·법령공포법·국회법 기반 절차. 국가법령정보 MCP 조문·판례 검증(verify_citations로 조문 실존·현행 확인). ⚠️ 한국법에 미국식 Federal Register·NPRM·attorney work-product 제도 없음 — 대륙법계 입법·행정예고 절차로 재설계. ⚠️ 국회 의안(법률안)은 국가법령정보 커넥터 범위 밖 — 국회 의안정보시스템 직접 검색 + `[국회 의안시스템 — 직접 검증 필요]` 태그. claude-for-legal-kr 포팅.",
+  "keywords": [
+    "regulatory",
+    "regulatory-monitoring",
+    "korea",
+    "한국",
+    "규제",
+    "규제모니터링",
+    "입법예고",
+    "행정예고",
+    "행정절차법",
+    "법령공포법",
+    "국회법",
+    "국회의안정보시스템",
+    "시행일",
+    "의견제출",
+    "재료성",
+    "정책라이브러리",
+    "개인정보보호위원회",
+    "금융위원회",
+    "공정거래위원회",
+    "식약처",
+    "방송통신위원회",
+    "고용노동부",
+    "행정규칙",
+    "고시",
+    "훈령",
+    "규제영향분석"
+  ],
+  "author": {
+    "name": "claude-for-legal-kr contributors"
+  },
+  "homepage": "https://github.com/rhc98/claude-for-legal-kr",
+  "license": "Apache-2.0"
+}

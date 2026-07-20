@@ -4,16 +4,16 @@
 > (Apache 2.0)의 **한국 법체계 포팅**.
 > 국가법령정보 MCP(`korean-law`, `https://mcp.gomdori.app/law`)를 런타임 데이터 소스로 사용해 한국 법령·판례 위에서 실제 동작합니다.
 
-**현재 상태**: 7개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
+**현재 상태**: 8개 플러그인 포팅 완료 — `privacy-legal`(개인정보보호법 실무),
 `ai-governance-legal`(AI 거버넌스 실무 — AI 기본법 2026.1.22. 시행 + PIPA §37-2 자동화된 결정),
 `commercial-legal`(상사·계약 실무 — 약관규제법·하도급법·소비자보호),
 `employment-legal`(근로·고용·인사 — 근로기준법·남녀고용평등법),
 `corporate-legal`(회사법무 — 상법·자본시장법·기업결합신고),
 `ip-legal`(지식재산 — 특허·상표·디자인·저작권·부정경쟁방지법·직무발명),
-`litigation-legal`(소송·분쟁 — 민사·형사·행정·가사소송법·민사집행법, 기한 관리·보전처분·강제집행·형사고소). 나머지 3개 플러그인
-(regulatory-legal, law-student, legal-clinic)은
+`litigation-legal`(소송·분쟁 — 민사·형사·행정·가사소송법·민사집행법, 기한 관리·보전처분·강제집행·형사고소),
+`regulatory-legal`(규제 모니터링·입법예고 대응 — 규제기관 피드·입법예고/행정예고 대응·정책 diff·재료성 분류·국회 계류 법률안 워치). 나머지 2개 플러그인
+(law-student, legal-clinic)은
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) 가이드를 따라 동일한 패턴으로 한국화 가능합니다.
-(regulatory는 국회 의안·행정 결정 데이터 의존도가 높아 우선순위 검토 후 진행 권장.)
 
 ---
 
@@ -259,7 +259,7 @@ claude-for-legal-kr/
 
 ## 기여
 
-남은 3개 플러그인(regulatory-legal, law-student, legal-clinic)을
+남은 2개 플러그인(law-student, legal-clinic)을
 한국화하고 싶으신가요?
 
 [`docs/PORTING_GUIDE.md`](docs/PORTING_GUIDE.md) — privacy-legal MVP에서 추출한
